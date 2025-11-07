@@ -1,0 +1,1 @@
+import { FormattingRule } from "../smarts.js";
