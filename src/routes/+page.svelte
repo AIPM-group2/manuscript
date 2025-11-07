@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { writable } from "svelte/store";
     import * as smarts from "../smarts.js";
-    import { rules } from "../pediatric_journal.js";
+    import { generalRules } from "../general_rules.js";
     import "../styles/page.css";
 
     const apiKey = writable("");
@@ -75,8 +75,8 @@
                             const extractedContent = await analyser.analyzeFile(file);
 
                             // Then analyze against all pediatric journal rules
-                            analysisProgress = `Analyzing document against ${rules.length} formatting rules...`;
-                            rulesAnalysisResults = await analyser.analyzeRules(extractedContent, rules);
+                            analysisProgress = `Analyzing document against ${generalRules.length} formatting rules...`;
+                            rulesAnalysisResults = await analyser.analyzeRules(extractedContent, generalRules);
 
                             analysisProgress = "";
                             analysisResult = "Document analyzed successfully!";
@@ -171,7 +171,7 @@
                                         {#if expandedSections.passed}
                                             <div class="section-content">
                                                 {#each passedRules as [ruleName, result]}
-                                                    {@const ruleFromList = rules.find((r) => r.name === ruleName)}
+                                                    {@const ruleFromList = generalRules.find((r) => r.name === ruleName)}
                                                     <div class="rule-item">
                                                         <button
                                                             class="rule-header"
@@ -241,7 +241,7 @@
                                         {#if expandedSections.errors}
                                             <div class="section-content">
                                                 {#each failedRules as [ruleName, result]}
-                                                    {@const ruleFromList = rules.find((r) => r.name === ruleName)}
+                                                    {@const ruleFromList = generalRules.find((r) => r.name === ruleName)}
                                                     <div class="rule-item">
                                                         <button
                                                             class="rule-header"
