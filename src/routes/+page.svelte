@@ -62,7 +62,7 @@
                 accept=".docx"
                 disabled={isAnalyzing}
                 on:change={async (e) => {
-                    const file = e.target.files[0];
+                    const file = (e.target as HTMLInputElement).files?.[0];
                     if (file && analyser) {
                         isAnalyzing = true;
                         error = "";
