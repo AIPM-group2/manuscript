@@ -1,5 +1,5 @@
 import { AIAnalyser } from "./smarts.js";
-import { rules } from "./pediatric_journal.js";
+import { generalRules } from "./general_rules.js";
 
 // Example usage of the new analyzeRules method
 async function exampleUsage() {
@@ -36,7 +36,7 @@ async function exampleUsage() {
   try {
     // Analyze the document against all rules
     console.log("Analyzing document against formatting rules...");
-    const results = await analyzer.analyzeRules(documentContent, rules);
+    const results = await analyzer.analyzeRules(documentContent, generalRules);
 
     // Display results
     console.log("\n=== Analysis Results ===\n");
@@ -72,7 +72,7 @@ async function analyzeUploadedFile(file: File) {
 
     // Then analyze against rules
     console.log("Analyzing extracted content against rules...");
-    const results = await analyzer.analyzeRules(extractedContent, rules);
+    const results = await analyzer.analyzeRules(extractedContent, generalRules);
 
     return results;
   } catch (error) {
