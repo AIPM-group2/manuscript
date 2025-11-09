@@ -1,11 +1,9 @@
 import { FormattingRule } from "./smarts.js";
 
-export const rules = [
-  new FormattingRule(
-    "Abstract Length and Content",
-    "Verify that the abstract is between 150 and 250 words. It must not contain undefined abbreviations or unspecified references. Detect section heading 'Abstract' and count word length while checking for abbreviations that are not defined elsewhere in the document.",
-  ),
+// Pediatric Journal Formatting Rules
+export const generalRules = [
 
+  // Initial rules of the prototype
   new FormattingRule(
     "Reference Citation Style",
     "Ensure that all in-text citations use numbers enclosed in square brackets (e.g., [1], [2-4]) and that the reference list is numbered consecutively. Cross-check that every cited number appears in the reference list and that DOIs, when available, are provided as full links.",
@@ -16,16 +14,91 @@ export const rules = [
     "Make sure that at least some text in the document is bold."
   ),
 
+  // --- General Manuscript Formatting Rules ---
+  new FormattingRule(
+    "File Format",
+    "Manuscripts must be submitted in Microsoft Word (.docx) format.",
+  ),
+  new FormattingRule(
+    "Font Style and Size",
+    "Use a normal, plain font such as 10-point Times New Roman for all text.",
+  ),
+  new FormattingRule(
+    "Emphasis Style",
+    "Use italics for emphasis; do not use bold or underlining for emphasis. Check for misuse of bold/underline for emphasis in the main text.",
+  ),
+  new FormattingRule(
+    "Page Numbering",
+    "Use the automatic page numbering function rather than adding numbers manually. Verify that page numbers are generated automatically.",
+  ),
+  new FormattingRule(
+    "Field Functions",
+    "Do not use field functions in the document (e.g., linked fields, auto-text fields).",
+  ),
+  new FormattingRule(
+    "Indentation Method",
+    "Use tab stops or paragraph commands for indents, never the space bar. Check for multiple consecutive spaces at the beginning of paragraphs.",
+  ),
+  new FormattingRule(
+    "Mathematical Expressions",
+    "Use the built-in equation editor or MathType for mathematical expressions. Check for improperly formatted or image-based equations.",
+  ),
+  new FormattingRule(
+    "Allowed File Extensions",
+    "Save the manuscript as a **.docx (Word 2007+) or .doc (older Word)** file. Verify the submitted file matches one of these extensions.",
+  ),
+  new FormattingRule(
+    "Unit System",
+    "Use only SI (Système International) units for all measurements and symbols. Flag non-SI units (e.g., Fahrenheit, pounds).",
+  ),
+  new FormattingRule(
+    "Line Spacing and Word Count Approximation",
+    "Type text double-spaced. This is a visual check; approximately 250 words per double-spaced page can be used as a rough length estimate.",
+  ),
+
+  // --- Title Page Formatting Rules ---
+  new FormattingRule(
+    "Title Content",
+    "Include a concise and informative title on the title page.",
+  ),
+  new FormattingRule(
+    "Author and Affiliation Details",
+    "Provide full author names, institutional affiliations (department, city, country), and the corresponding author’s email address.",
+  ),
+  new FormattingRule(
+    "ORCID Identifier",
+    "Include each author’s ORCID identifier if available. Check for the presence of a properly formatted ORCID for each author.",
+  ),
+  new FormattingRule(
+    "Clinical Trial Registration",
+    "Add any clinical trial registration number and date of registration when applicable.",
+  ),
+  new FormattingRule(
+    "Declarations (Title Page)",
+    "Declare competing interests and funding sources on the title page.",
+  ),
+  new FormattingRule(
+    "Acknowledgments Placement",
+    "Place acknowledgments and funding information only on the title page, not in the manuscript body. Check the manuscript body for misplaced acknowledgments.",
+  ),
+  new FormattingRule(
+    "Double-Blind Review Setup",
+    "For double-blind review, submit a separate title page and remove all identifying information from the manuscript text and figures. (This is usually a manual check/user instruction).",
+  ),
+
+  // --- Keywords Formatting Rules ---
   new FormattingRule(
     "Keywords Check",
     "Verify that 4 to 6 keywords, suitable for indexing, are included and placed immediately after the abstract."
   ), // Guideline 20
 
+  // --- Headings Formatting Rules ---
   new FormattingRule(
       "Headings Levels Check",
       "Ensure the manuscript uses a maximum of three levels of headings to organize the structure."
   ), // Guideline 21
 
+  // --- Headings and Structure Rules ---
   new FormattingRule(
       "Manuscript Structure Check",
       "Confirm the manuscript structure adheres to the required logical organization: Introduction, Methods, Results, Discussion, and Conclusion sections."
@@ -36,6 +109,7 @@ export const rules = [
       "Examine if all abbreviations are defined at their first occurrence and if their usage is consistently maintained thereafter."
   ), // Guideline 23
 
+  // --- Figure Formatting Rules
   // unapplicable since only access to the .docx file
   // new FormattingRule(
   //     "Figure File Submission Check",
@@ -78,6 +152,7 @@ export const rules = [
       "If color figures are used, ensure they remain clearly readable and interpretable when converted to grayscale (black and white print)."
   ), // Guideline 31
 
+  // --- Figure Captions Formatting Rules ---
   new FormattingRule(
       "Figure Caption Start Format Check",
       "Verify that each caption starts with 'Fig.' in bold, followed immediately by the figure number (also bold), with no punctuation after the number."
@@ -93,6 +168,7 @@ export const rules = [
       "Ensure that figure captions are placed within the main manuscript text file and not stored within the figure image files."
   ), // Guideline 34
 
+  // --- Table Formatting Rules ---
   new FormattingRule(
       "Table Numbering and Citation Check",
       "Verify that all tables are numbered consecutively using Arabic numerals and are cited in the text in their correct numerical order."
@@ -112,4 +188,6 @@ export const rules = [
       "Table Footnotes/Significance Check",
       "Verify the correct use of superscript lowercase letters for table footnotes and/or asterisks for indicating significance values."
   ), // Guideline 38
+
+  
 ];
