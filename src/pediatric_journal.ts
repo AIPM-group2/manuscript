@@ -112,4 +112,98 @@ export const rules = [
       "Table Footnotes/Significance Check",
       "Verify the correct use of superscript lowercase letters for table footnotes and/or asterisks for indicating significance values."
   ), // Guideline 38
+
+  // ==============================
+  new FormattingRule(
+      "Table Prior Publication Acknowledgment",
+      "If any table includes previously published data or adapted content, verify that the table caption acknowledges the original source using an appropriate reference citation (e.g., 'Adapted from [X]'). If such reuse is present without citation, mark as non-compliant.",
+  ), // Guideline 39
+
+  
+  // References
+  new FormattingRule(
+      "References Numeric Style In-Text",
+      "Check that in-text citations use numeric style with numbers in square brackets (e.g., [1], [2–4]) and no author–date patterns. Identify all bracketed citation patterns and flag deviations.",
+  ), // Guideline 40
+
+  new FormattingRule(
+      "References Ordered Numerically",
+      "Ensure the reference list is ordered numerically according to first appearance in the text. Cross-check that numbering matches citation order and that numbering is consecutive.",
+  ), // Guideline 41
+
+  new FormattingRule(
+      "References Include DOI Links",
+      "Verify that references include full DOI hyperlinks when available (https://doi.org/...). If a DOI is mentioned without a link, flag it; if no DOI appears to exist for a reference, explain that it may be acceptable.",
+  ), // Guideline 42
+
+  new FormattingRule(
+      "References Journal Title Abbreviations",
+      "Check that journal titles use standard abbreviations per ISSN LTWA. If uncertain, accept full journal titles but flag obviously non-standard abbreviations.",
+  ), // Guideline 43
+
+  new FormattingRule(
+      "References Specific Formats",
+      "Assess whether common reference types follow expected formats (journal article, book, book chapter, online document, dissertation). Tolerate minor punctuation variance but flag missing essential fields (authors, title, venue, year; publisher for books; editors for chapters; URL/DOI for online).",
+  ), // Guideline 44
+
+  new FormattingRule(
+      "LaTeX Bibliography Style (If Applicable)",
+      "If the manuscript is prepared in LaTeX (detected via TeX artifacts or mentions), ensure use of Springer 'sn-basic.bst' for the bibliography. If the manuscript is a Word/DOCX document, mark as not applicable and explain.",
+  ), // Guideline 45
+
+  
+  // Graphical Abstract
+  new FormattingRule(
+      "Graphical Abstract Submission",
+      "Verify that a graphical abstract is submitted as a single PowerPoint slide following the official Springer template. From manuscript text, look for mentions of 'Graphical abstract' and template compliance; if unverifiable from the DOCX, mark as requiring manual verification and explain.",
+  ), // Guideline 46
+
+  new FormattingRule(
+      "Graphical Abstract Template Compliance",
+      "Confirm that the graphical abstract follows the template's background, font, and layout instructions exactly. If the manuscript text includes a checklist or statement of compliance, accept; otherwise note that this typically requires manual inspection of the PPT file.",
+  ), // Guideline 47
+
+  new FormattingRule(
+      "Graphical Abstract Color Accessibility",
+      "Advise against color combinations problematic for color blindness (e.g., red/green, blue/black). If color usage is described, check for accessible palettes; otherwise note that verification may require visual inspection.",
+  ), // Guideline 48
+
+  
+  // Supplementary Material
+  new FormattingRule(
+      "Supplementary Formats Accepted",
+      "Confirm that listed supplementary materials are in accepted formats (.avi, .mp4, .mov, .wmv, .m4v, .pdf, .xlsx, .csv). If only referenced in text, verify stated extensions; if files are not available via DOCX, note that this requires manual file review.",
+  ), // Guideline 49
+
+  new FormattingRule(
+      "Supplementary Size and Aspect Ratio",
+      "Where file properties are stated, check that supplementary files do not exceed 2 GB and that videos target 16:9 or 4:3 aspect ratios. If properties are not stated and files are not attached, note that this is a manual verification item.",
+  ), // Guideline 50
+
+  new FormattingRule(
+      "Supplementary Naming and Citation",
+      "Ensure supplementary files are named consecutively and cited in text as 'Online Resource 1', 'Online Resource 2', etc., with consistent numbering and references in the manuscript.",
+  ), // Guideline 51
+
+  new FormattingRule(
+      "Supplementary Captions Provided",
+      "Verify that each supplementary item has a concise caption or legend describing content and purpose, either within a dedicated section or near the first in-text mention.",
+  ), // Guideline 52
+
+  
+  // Accessibility & Layout
+  new FormattingRule(
+      "Accessibility Contrast Ratio",
+      "Ensure that figure and text color combinations meet a contrast ratio of at least 4.5:1. If only document text is available, flag as requiring manual visual check and suggest using accessible palettes.",
+  ), // Guideline 53
+
+  new FormattingRule(
+      "Accessibility Non-Color Cues",
+      "Check that figures rely on patterns/textures or labels in addition to color to differentiate elements (e.g., line styles, hatch patterns). If not determinable from text alone, note manual verification is required.",
+  ), // Guideline 54
+
+  new FormattingRule(
+      "Figure Layout Column Width Compliance",
+      "For layouts targeting Springer formats, verify that figures are sized to fit standard column widths (approx. 84 mm for double-column or 174 mm for single-column). From DOCX text, look for explicit sizing notes; otherwise flag as a layout check for production stage.",
+  ), // Guideline 55
 ];
