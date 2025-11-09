@@ -14,7 +14,7 @@ export const generalRules = [
     "Make sure that at least some text in the document is bold."
   ),
 
-  // --- Generat Manuscript Formatting Rules ---
+  // --- General Manuscript Formatting Rules ---
   new FormattingRule(
     "File Format",
     "Manuscripts must be submitted in Microsoft Word (.docx) format.",
