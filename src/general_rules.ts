@@ -24,6 +24,7 @@ export const generalRules = [
     "Use the automatic page numbering function rather than adding numbers manually. Verify that page numbers are generated automatically.",
   ), // Guideline 4
 
+  // TODO check existence and relevance of this rule
   new FormattingRule(
     "Field Functions",
     "Do not use field functions in the document (e.g., linked fields, auto-text fields).",
