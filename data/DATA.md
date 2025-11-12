@@ -58,3 +58,24 @@ Original version is article1-0.pdf and article1-0.docx (auto-converted by Word).
 - Break guideline 20 page 2494-2495: turned "Methods" and "Ratios" in "Results", and turned "Discussion" in "Methods", hence double Results is an error, and Methods after Results is another probable one.
 
 - Break guideline 21 page 2492-2493: removed CT abbreviation after "computed tomography", now abbreviation undefined
+
+
+#### v4
+
+- Break guideline 24 on page 2495: the resolution is lower than 600dpi for combination artwork.
+
+
+#### v5
+
+- Break guideline 26 on page 2495: caption included in the figure.
+
+- Break guideline 27 on page 2495: letter "e" smaller than 8-12 pt font size.
+
+- Break guideline 28 on page 2495: line thinner than 0.3 pt included.
+
+
+#### v6
+
+- Break guideline 29 on page 2495: uninterpretable (too dark)
+
+- Break guideline 51 on page 2495: figure's contrast ratio of max 1.4:1 << 4.5:1 required
