@@ -1,0 +1,18 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    environment: 'happy-dom',
+    globals: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'src/routes/',
+        '*.config.js',
+      ],
+    },
+    testTimeout: 60000, // 60 seconds per test (AI analysis can be slow)
+  },
+});
