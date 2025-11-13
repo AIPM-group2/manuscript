@@ -56,7 +56,7 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
       const totalCount = Object.values(results).length;
       const passRate = (passingCount / totalCount) * 100;
 
-      console.log(`\n📊 Original article: ${passingCount}/${totalCount} rules passed (${passRate.toFixed(1)}%)`);
+      console.log(`\n Original article: ${passingCount}/${totalCount} rules passed (${passRate.toFixed(1)}%)`);
 
       // We expect the original to pass most rules (at least 80%)
       // Some rules may fail due to AI interpretation or edge cases
@@ -100,7 +100,7 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
 
           const detectionRate = (detectedViolations.length / testCase.brokenGuidelines.length) * 100;
 
-          console.log(`\n📋 v${testCase.version} Violation Detection:`);
+          console.log(`\n v${testCase.version} Violation Detection:`);
           console.log(`   Detected: ${detectedViolations.length}/${testCase.brokenGuidelines.length} (${detectionRate.toFixed(1)}%)`);
           if (detectedViolations.length > 0) {
             console.log(`Found violations in guidelines: ${detectedViolations.join(', ')}`);
@@ -134,7 +134,7 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
           const accuracy = (correctPasses.length / expectedPassing.length) * 100;
           const falsePositiveRate = (falsePositives.length / expectedPassing.length) * 100;
 
-          console.log(`\n📊 v${testCase.version} False Positive Analysis:`);
+          console.log(`\n v${testCase.version} False Positive Analysis:`);
           console.log(`Correct passes: ${correctPasses.length}/${expectedPassing.length} (${accuracy.toFixed(1)}%)`);
           if (falsePositives.length > 0) {
             console.log(`False positives: ${falsePositives.length} (${falsePositiveRate.toFixed(1)}%) in guidelines: ${falsePositives.slice(0, 10).join(', ')}${falsePositives.length > 10 ? '...' : ''}`);
