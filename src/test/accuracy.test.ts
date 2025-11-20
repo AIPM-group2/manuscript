@@ -5,6 +5,10 @@ import { AIAnalyser } from '../smarts.js';
 import { generalRules } from '../general_rules.js';
 import { guidelineToRuleMap } from './guideline-mapping.js';
 import { articleTestCases, getExpectedPassingGuidelines, originalArticle } from './test-data-config.js';
+import fs from 'fs';
+import mammoth from 'mammoth';
+import path from 'path';
+
 
 /**
  * Automated Accuracy Test Suite for ManuScript AI Formatting Checker
@@ -16,12 +20,21 @@ import { articleTestCases, getExpectedPassingGuidelines, originalArticle } from 
 // Helper function to convert file to File object for testing
 function createFileFromPath(filePath: string, fileName: string): File {
   const buffer = readFileSync(filePath);
-  const blob = new Blob([buffer], {
+
+  // Create a File-like object that properly handles arrayBuffer()
+  const file = new File([buffer], fileName, {
     type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
   });
-  return new File([blob], fileName, {
-    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-  });
+
+  // Override arrayBuffer to return the buffer directly as ArrayBuffer
+  const originalArrayBuffer = file.arrayBuffer.bind(file);
+  file.arrayBuffer = async () => {
+    // Convert Node Buffer to ArrayBuffer
+    const ab = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+    return ab;
+  };
+
+  return file;
 }
 
 // Skip tests if API key is not set
@@ -47,9 +60,9 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
     test('should pass most guidelines for unmodified article', async () => {
       const filePath = join(dataDir, originalArticle.filename);
       const file = createFileFromPath(filePath, originalArticle.filename);
-
+      
       const documentContent = await analyzer.analyzeFile(file);
-      const results = await analyzer.analyzeRules(documentContent, generalRules);
+      const results = await analyzer.analyzeRules(originalArticle.filename, originalArticle.extension, documentContent, generalRules);
 
       // Count passing rules
       const passingCount = Object.values(results).filter(r => r.decision === true).length;
@@ -76,7 +89,7 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
           const file = createFileFromPath(filePath, testCase.filename);
 
           documentContent = await analyzer.analyzeFile(file);
-          results = await analyzer.analyzeRules(documentContent, generalRules);
+          results = await analyzer.analyzeRules(testCase.filename, testCase.extension, documentContent, generalRules);
         }, 300000); // 5 minute timeout
 
         test('should detect intentionally broken guidelines', () => {

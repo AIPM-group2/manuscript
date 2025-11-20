@@ -7,6 +7,7 @@ export const generalRules = [
   new FormattingRule(
     "File Format",
     "Manuscripts must be submitted in Microsoft Word (.docx) format.",
+    false
   ), // Guideline 1
 
   new FormattingRule(
@@ -286,7 +287,5 @@ export const generalRules = [
   new FormattingRule(
       "Figure Layout Column Width Compliance",
       "For layouts targeting Springer formats, verify that figures are sized to fit standard column widths (approx. 84 mm for double-column or 174 mm for single-column). From DOCX text, look for explicit sizing notes; otherwise flag as a layout check for production stage.",
-  ), // Guideline 53
-
-  
+  ), // Guideline 53  
 ];

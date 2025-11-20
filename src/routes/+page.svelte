@@ -76,7 +76,7 @@
 
                             // Then analyze against all pediatric journal rules
                             analysisProgress = `Analyzing document against ${generalRules.length} formatting rules...`;
-                            rulesAnalysisResults = await analyser.analyzeRules(extractedContent, generalRules);
+                            rulesAnalysisResults = await analyser.analyzeRules(file.name, file.type, extractedContent, generalRules);
 
                             analysisProgress = "";
                             analysisResult = "Document analyzed successfully!";
