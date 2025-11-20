@@ -22,7 +22,7 @@ export class AIAnalyser {
     this.client = new OpenAI({
       baseURL: "https://openrouter.ai/api/v1",
       apiKey: apiKey,
-      //dangerouslyAllowBrowser: true,
+      dangerouslyAllowBrowser: true,
     });
     this.parallelThreads = Math.max(1, parallelThreads);
   }
@@ -45,19 +45,25 @@ export class AIAnalyser {
     }
 
     try {
-     // Convert File to ArrayBuffer
-     const arrayBuffer = await file.arrayBuffer();
-
-     // Convert ArrayBuffer to Node.js Buffer for mammoth
-     const buffer = Buffer.from(arrayBuffer);
-
-     // Extract text from DOCX using mammoth
-     const result = await mammoth.convertToHtml({ buffer });
-     const extractedText = result.value;
-
-     // Return the extracted text content for further analysis
-     return extractedText;
-    } catch (error) {
+      // Convert file to ArrayBuffer (works in both browser and Node)
+      const arrayBuffer = await file.arrayBuffer();
+  
+      // Detect if running in Node.js (Buffer exists) or browser
+      const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
+  
+      let result;
+  
+      if (isNode) {
+        // Node.js: use Buffer
+        const buffer = Buffer.from(arrayBuffer);
+        result = await mammoth.convertToHtml({ buffer });
+      } else {
+        // Browser: use arrayBuffer directly
+        result = await mammoth.convertToHtml({ arrayBuffer });
+      }
+  
+      return result.value;
+    } catch (error: any) {
       throw new Error(`Failed to process DOCX file: ${error.message}`);
     }
   }
