@@ -80,8 +80,8 @@ export class AIAnalyser {
   Here is the list of formatting rules you must evaluate.
   You MUST output strictly valid JSON. 
   Do NOT output explanations, markdown, code fences, comments, backticks or text outside the JSON.
-  Your entire output must be a single JSON array:
-  For EACH rule, return an object:
+  Your entire output must be a single JSON object (not an array), where each key is the rule name and the value is an object:
+
   
   {
     "<rule name>": {
@@ -97,21 +97,16 @@ export class AIAnalyser {
   `.trim();
   
     const response = await this.analyze(prompt);
-  
-    let jsonString = response.trim();
-    const cleaned = jsonString
-      .replace(/^```json\s*/, "")
-      .replace(/```$/, "")
-      .trim();
-
-    const jsonMatch = jsonString.match(/```(?:json)?\s*(\{[\s\S]*?\})\s*```/);
-    if (jsonMatch) {
-      jsonString = jsonMatch[1];
+    const firstBrace = response.indexOf("{");
+    const lastBrace = response.lastIndexOf("}");
+    if (firstBrace === -1 || lastBrace === -1) {
+      throw new Error("No JSON object found in AI response");
     }
-  
+    const jsonString = response.slice(firstBrace, lastBrace + 1);
+
     let parsed: any;
     try {
-      parsed = JSON.parse(cleaned);
+      parsed = JSON.parse(jsonString);
     } catch (e) {
       throw new Error(`Failed to parse JSON from AI response: ${jsonString}`);
     }
