@@ -1,8 +1,10 @@
-import OpenAI from "openai";
+// import OpenAI from "openai";
 import mammoth from "mammoth";
+import { GoogleGenAI } from "@google/genai";
 
 const MODEL_CHATGPT_4O_MINI = "gpt-4o-mini";
 const MODEL_GEMINI_2_5_FLASH = "google/gemini-2.5-flash-lite";
+const MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"; 
 const MODEL_META_LLAMA_4_SCOUT = "meta-llama/llama-4-scout";
 
 export type RuleAnalysisResult = {
@@ -12,32 +14,25 @@ export type RuleAnalysisResult = {
 };
 
 export class AIAnalyser {
-  private client: OpenAI;
+  private client: any;
   private parallelThreads: number;
 
   constructor(
     private apiKey: string,
     parallelThreads: number = 8,
   ) {
-    this.client = new OpenAI({
-      baseURL: "https://openrouter.ai/api/v1",
-      apiKey: apiKey,
-      dangerouslyAllowBrowser: true,
-    });
+    this.client = new GoogleGenAI({ apiKey: this.apiKey });
     this.parallelThreads = Math.max(1, parallelThreads);
   }
 
-  async analyze(data: string): Promise<string> {
-    const response = await this.client.chat.completions.create({
-      model: MODEL_GEMINI_2_5_FLASH,
-      messages: [
-        { role: "system", content: "You are an analytical assistant." },
-        { role: "user", content: data },
-      ],
+  async analyze(prompt: string): Promise<string> {
+    const response = await this.client.models.generateContent({
+      model: MODEL_GEMINI_2_0_FLASH,
+      contents: prompt,
     });
+    return response.text;    
+}
 
-    return response.choices[0].message.content ?? "";
-  }
 
   async analyzeFile(file: File): Promise<string> {
     if (!file.name.endsWith(".docx")) {
@@ -86,6 +81,7 @@ export class AIAnalyser {
   Here is the list of formatting rules you must evaluate.
   You MUST output strictly valid JSON. 
   Do NOT output explanations, markdown, code fences, comments, backticks or text outside the JSON.
+  Do NOT add any commas or brackets inside the explanation.
   Your entire output must be a single JSON object (not an array), where each key is the rule name and the value is an object:
 
   
