@@ -1,10 +1,14 @@
-import { describe, test, expect, beforeAll } from 'vitest';
-import { readFileSync } from 'fs';
+import { describe, test, expect, beforeAll, afterAll } from 'vitest';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
+import { config } from 'dotenv';
 import { AIAnalyser } from '../smarts.js';
 import { generalRules } from '../general_rules.js';
 import { guidelineToRuleMap } from './guideline-mapping.js';
 import { articleTestCases, getExpectedPassingGuidelines, originalArticle } from './test-data-config.js';
+
+// Load environment variables from .env file
+config();
 
 /**
  * Automated Accuracy Test Suite for ManuScript AI Formatting Checker
@@ -13,20 +17,45 @@ import { articleTestCases, getExpectedPassingGuidelines, originalArticle } from 
  * using the modified test articles in the data/ directory.
  */
 
-// Helper function to convert file to File object for testing
-function createFileFromPath(filePath: string, fileName: string): File {
-  const buffer = readFileSync(filePath);
-  const blob = new Blob([buffer], {
-    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-  });
-  return new File([blob], fileName, {
-    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-  });
-}
-
 // Skip tests if API key is not set
 const API_KEY = process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY;
 const shouldRunTests = !!API_KEY;
+const exportEnabled = process.env.EXPORT_RESULTS === '1';
+
+// Container for exporting detailed rule decisions
+interface ExportRecord {
+  scope: 'baseline' | 'version';
+  version?: number;
+  filename: string;
+  description?: string;
+  rules: Record<string, any>; // RuleAnalysisResult with debug fields if enabled
+}
+const exportRecords: ExportRecord[] = [];
+
+// Helper function to write export file
+function writeExport() {
+  if (!exportEnabled) return;
+  try {
+    const outDir = join(process.cwd(), 'test-output');
+    if (!existsSync(outDir)) {
+      mkdirSync(outDir);
+    }
+    const exportPayload = {
+      generatedAt: new Date().toISOString(),
+      totalScopes: exportRecords.length,
+      baseline: exportRecords.find(r => r.scope === 'baseline') || null,
+      versions: exportRecords.filter(r => r.scope === 'version'),
+      ruleCount: generalRules.length,
+      debugIncluded: process.env.DEBUG_RULES === '1',
+    };
+    const fileName = `analysis-run-${new Date().toISOString().replace(/[:]/g, '-').split('.')[0]}.json`;
+    const fullPath = join(outDir, fileName);
+    writeFileSync(fullPath, JSON.stringify(exportPayload, null, 2), 'utf8');
+    console.log(`\n📝 Exported to: ${fullPath}`);
+  } catch (err) {
+    console.warn('Failed to write export:', (err as Error).message);
+  }
+}
 
 if (!shouldRunTests) {
   console.warn('\n⚠️  Skipping accuracy tests: No API key found.');
@@ -46,10 +75,24 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
   describe('Baseline: Original Article', () => {
     test('should pass most guidelines for unmodified article', async () => {
       const filePath = join(dataDir, originalArticle.filename);
-      const file = createFileFromPath(filePath, originalArticle.filename);
 
-      const documentContent = await analyzer.analyzeFile(file);
-      const results = await analyzer.analyzeRules(documentContent, generalRules);
+      // Use structured converter for better formatting metadata extraction
+      const results = await analyzer.analyzeRulesFromDocx(filePath, generalRules, { 
+        debug: process.env.DEBUG_RULES === '1',
+        useStructured: true 
+      });
+
+      if (exportEnabled) {
+        exportRecords.push({
+          scope: 'baseline',
+          filename: originalArticle.filename,
+          description: originalArticle.description,
+          rules: results,
+        });
+        
+        // Export immediately after baseline
+        writeExport();
+      }
 
       // Count passing rules
       const passingCount = Object.values(results).filter(r => r.decision === true).length;
@@ -69,14 +112,28 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
     articleTestCases.forEach((testCase) => {
       describe(`Version ${testCase.version}: ${testCase.description}`, () => {
         let results: any;
-        let documentContent: string;
 
         beforeAll(async () => {
           const filePath = join(dataDir, testCase.filename);
-          const file = createFileFromPath(filePath, testCase.filename);
 
-          documentContent = await analyzer.analyzeFile(file);
-          results = await analyzer.analyzeRules(documentContent, generalRules);
+          // Use structured converter for better formatting metadata extraction
+          results = await analyzer.analyzeRulesFromDocx(filePath, generalRules, { 
+            debug: process.env.DEBUG_RULES === '1',
+            useStructured: true 
+          });
+
+          if (exportEnabled) {
+            exportRecords.push({
+              scope: 'version',
+              version: testCase.version,
+              filename: testCase.filename,
+              description: testCase.description,
+              rules: results,
+            });
+            
+            // Export after each version
+            writeExport();
+          }
         }, 300000); // 5 minute timeout
 
         test('should detect intentionally broken guidelines', () => {
@@ -208,5 +265,30 @@ describe.skipIf(!shouldRunTests)('Manuscript Accuracy Test Suite', () => {
 
       expect(true).toBe(true);
     });
+  });
+
+  afterAll(() => {
+    if (!exportEnabled) return;
+    try {
+      const outDir = join(process.cwd(), 'test-output');
+      if (!existsSync(outDir)) {
+        mkdirSync(outDir);
+      }
+      const exportPayload = {
+        generatedAt: new Date().toISOString(),
+        totalScopes: exportRecords.length,
+        baseline: exportRecords.find(r => r.scope === 'baseline') || null,
+        versions: exportRecords.filter(r => r.scope === 'version'),
+        ruleCount: generalRules.length,
+        debugIncluded: process.env.DEBUG_RULES === '1',
+      };
+      const fileName = `analysis-run-${new Date().toISOString().replace(/[:]/g, '-').split('.')[0]}.json`;
+      const fullPath = join(outDir, fileName);
+      writeFileSync(fullPath, JSON.stringify(exportPayload, null, 2), 'utf8');
+      console.log(`\n📝 Exported detailed analysis JSON to: ${fullPath}`);
+      console.log(`Contains raw model responses: ${process.env.DEBUG_RULES === '1' ? 'yes' : 'no (set DEBUG_RULES=1 to include)'}`);
+    } catch (err) {
+      console.warn('Failed to write export JSON:', (err as Error).message);
+    }
   });
 });

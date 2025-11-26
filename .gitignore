@@ -2,3 +2,4 @@
 node_modules
 .svelte-kit
 build
+data/article1-figures/

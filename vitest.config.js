@@ -1,8 +1,12 @@
 import { defineConfig } from 'vitest/config';
+import { config } from 'dotenv';
+
+// Load environment variables from .env file
+config();
 
 export default defineConfig({
   test: {
-    environment: 'happy-dom',
+    environment: 'node',
     globals: true,
     coverage: {
       provider: 'v8',

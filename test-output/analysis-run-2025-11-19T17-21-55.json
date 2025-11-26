@@ -1,0 +1,3593 @@
+{
+  "generatedAt": "2025-11-19T17:21:55.672Z",
+  "totalScopes": 11,
+  "baseline": {
+    "scope": "baseline",
+    "filename": "article1-0.docx",
+    "description": "Original unmodified article - should pass all applicable guidelines",
+    "rules": {
+      "File Format": {
+        "rule": "File Format",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Font Style and Size": {
+        "rule": "Font Style and Size",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Emphasis Style": {
+        "rule": "Emphasis Style",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Page Numbering": {
+        "rule": "Page Numbering",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Field Functions": {
+        "rule": "Field Functions",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Indentation Method": {
+        "rule": "Indentation Method",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Mathematical Expressions": {
+        "rule": "Mathematical Expressions",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Allowed File Extensions": {
+        "rule": "Allowed File Extensions",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Unit System": {
+        "rule": "Unit System",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Line Spacing and Word Count Approximation": {
+        "rule": "Line Spacing and Word Count Approximation",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Title Content": {
+        "rule": "Title Content",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Author and Affiliation Details": {
+        "rule": "Author and Affiliation Details",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "ORCID Identifier": {
+        "rule": "ORCID Identifier",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Clinical Trial Registration": {
+        "rule": "Clinical Trial Registration",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Declarations (Title Page)": {
+        "rule": "Declarations (Title Page)",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Acknowledgments Placement": {
+        "rule": "Acknowledgments Placement",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Double-Blind Review Setup": {
+        "rule": "Double-Blind Review Setup",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Keywords Check": {
+        "rule": "Keywords Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Headings Levels Check": {
+        "rule": "Headings Levels Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Manuscript Structure Check": {
+        "rule": "Manuscript Structure Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Abbreviations Consistency Check": {
+        "rule": "Abbreviations Consistency Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure File Submission Check": {
+        "rule": "Figure File Submission Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Format & Resolution Check (Vector/Halftone)": {
+        "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Resolution Check (Line/Combination)": {
+        "rule": "Figure Resolution Check (Line/Combination)",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Numbering and Citation Check": {
+        "rule": "Figure Numbering and Citation Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Content Exclusion Check": {
+        "rule": "Figure Content Exclusion Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Lettering Check": {
+        "rule": "Figure Lettering Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Line Width Check": {
+        "rule": "Figure Line Width Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Color Figure Readability Check": {
+        "rule": "Color Figure Readability Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Caption Start Format Check": {
+        "rule": "Figure Caption Start Format Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Caption Content Check": {
+        "rule": "Figure Caption Content Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Caption Placement Check": {
+        "rule": "Figure Caption Placement Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Table Numbering and Citation Check": {
+        "rule": "Table Numbering and Citation Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Table Creation Method Check": {
+        "rule": "Table Creation Method Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Table Caption/Title Check": {
+        "rule": "Table Caption/Title Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Table Footnotes/Significance Check": {
+        "rule": "Table Footnotes/Significance Check",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Table Prior Publication Acknowledgment": {
+        "rule": "Table Prior Publication Acknowledgment",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "References Numeric Style In-Text": {
+        "rule": "References Numeric Style In-Text",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "References Ordered Numerically": {
+        "rule": "References Ordered Numerically",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "References Include DOI Links": {
+        "rule": "References Include DOI Links",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "References Journal Title Abbreviations": {
+        "rule": "References Journal Title Abbreviations",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "References Specific Formats": {
+        "rule": "References Specific Formats",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "LaTeX Bibliography Style (If Applicable)": {
+        "rule": "LaTeX Bibliography Style (If Applicable)",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Graphical Abstract Submission": {
+        "rule": "Graphical Abstract Submission",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Graphical Abstract Template Compliance": {
+        "rule": "Graphical Abstract Template Compliance",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Graphical Abstract Color Accessibility": {
+        "rule": "Graphical Abstract Color Accessibility",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Supplementary Formats Accepted": {
+        "rule": "Supplementary Formats Accepted",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Supplementary Size and Aspect Ratio": {
+        "rule": "Supplementary Size and Aspect Ratio",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Supplementary Naming and Citation": {
+        "rule": "Supplementary Naming and Citation",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Supplementary Captions Provided": {
+        "rule": "Supplementary Captions Provided",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Accessibility Contrast Ratio": {
+        "rule": "Accessibility Contrast Ratio",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Accessibility Non-Color Cues": {
+        "rule": "Accessibility Non-Color Cues",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      },
+      "Figure Layout Column Width Compliance": {
+        "rule": "Figure Layout Column Width Compliance",
+        "decision": false,
+        "justification": "Runtime error analyzing rule: 401 User not found.",
+        "parsedSuccessfully": false
+      }
+    }
+  },
+  "versions": [
+    {
+      "scope": "version",
+      "version": 1,
+      "filename": "article1-1.docx",
+      "description": "v1: Breaks guidelines 2 (font), 3 (bold/underline), 4 (page numbers), 6 (indentation), 9 (units), 11 (title)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 2,
+      "filename": "article1-2.docx",
+      "description": "v2: All v1 issues + 12 (email), 16 (acknowledgments placement)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 3,
+      "filename": "article1-3.docx",
+      "description": "v3: Breaks 18 (keywords), 19 (heading levels), 20 (structure), 21 (abbreviations)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 4,
+      "filename": "article1-4.docx",
+      "description": "v4: Breaks 24 (figure resolution for combination artwork)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 5,
+      "filename": "article1-5.docx",
+      "description": "v5: Breaks 26 (caption in figure), 27 (font size), 28 (line width)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 6,
+      "filename": "article1-6.docx",
+      "description": "v6: Breaks 29 (figure readability), 51 (contrast ratio)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 7,
+      "filename": "article1-7.docx",
+      "description": "v7: Breaks 30 (caption format - multiple issues), 31 (caption missing details)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 8,
+      "filename": "article1-8.docx",
+      "description": "v8: All v7 issues + 33 (table ordering/references), 34 (table creation method)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 9,
+      "filename": "article1-9.docx",
+      "description": "v9: Breaks 35 (table caption placement/format), 37 (prior publication), 38 (reference format)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    },
+    {
+      "scope": "version",
+      "version": 10,
+      "filename": "article1-10.docx",
+      "description": "v10: Breaks 39 (references not cited), 40 (invalid DOI), 41 (abbreviations), 42 (missing year/chapter)",
+      "rules": {
+        "File Format": {
+          "rule": "File Format",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Font Style and Size": {
+          "rule": "Font Style and Size",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Emphasis Style": {
+          "rule": "Emphasis Style",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Page Numbering": {
+          "rule": "Page Numbering",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Field Functions": {
+          "rule": "Field Functions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Indentation Method": {
+          "rule": "Indentation Method",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Mathematical Expressions": {
+          "rule": "Mathematical Expressions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Allowed File Extensions": {
+          "rule": "Allowed File Extensions",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Unit System": {
+          "rule": "Unit System",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Line Spacing and Word Count Approximation": {
+          "rule": "Line Spacing and Word Count Approximation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Title Content": {
+          "rule": "Title Content",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Author and Affiliation Details": {
+          "rule": "Author and Affiliation Details",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "ORCID Identifier": {
+          "rule": "ORCID Identifier",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Clinical Trial Registration": {
+          "rule": "Clinical Trial Registration",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Declarations (Title Page)": {
+          "rule": "Declarations (Title Page)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Acknowledgments Placement": {
+          "rule": "Acknowledgments Placement",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Double-Blind Review Setup": {
+          "rule": "Double-Blind Review Setup",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Keywords Check": {
+          "rule": "Keywords Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Headings Levels Check": {
+          "rule": "Headings Levels Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Manuscript Structure Check": {
+          "rule": "Manuscript Structure Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Abbreviations Consistency Check": {
+          "rule": "Abbreviations Consistency Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure File Submission Check": {
+          "rule": "Figure File Submission Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Format & Resolution Check (Vector/Halftone)": {
+          "rule": "Figure Format & Resolution Check (Vector/Halftone)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Resolution Check (Line/Combination)": {
+          "rule": "Figure Resolution Check (Line/Combination)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Numbering and Citation Check": {
+          "rule": "Figure Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Content Exclusion Check": {
+          "rule": "Figure Content Exclusion Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Lettering Check": {
+          "rule": "Figure Lettering Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Line Width Check": {
+          "rule": "Figure Line Width Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Color Figure Readability Check": {
+          "rule": "Color Figure Readability Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Start Format Check": {
+          "rule": "Figure Caption Start Format Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Content Check": {
+          "rule": "Figure Caption Content Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Caption Placement Check": {
+          "rule": "Figure Caption Placement Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Numbering and Citation Check": {
+          "rule": "Table Numbering and Citation Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Creation Method Check": {
+          "rule": "Table Creation Method Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Caption/Title Check": {
+          "rule": "Table Caption/Title Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Footnotes/Significance Check": {
+          "rule": "Table Footnotes/Significance Check",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Table Prior Publication Acknowledgment": {
+          "rule": "Table Prior Publication Acknowledgment",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Numeric Style In-Text": {
+          "rule": "References Numeric Style In-Text",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Ordered Numerically": {
+          "rule": "References Ordered Numerically",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Include DOI Links": {
+          "rule": "References Include DOI Links",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Journal Title Abbreviations": {
+          "rule": "References Journal Title Abbreviations",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "References Specific Formats": {
+          "rule": "References Specific Formats",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "LaTeX Bibliography Style (If Applicable)": {
+          "rule": "LaTeX Bibliography Style (If Applicable)",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Submission": {
+          "rule": "Graphical Abstract Submission",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Template Compliance": {
+          "rule": "Graphical Abstract Template Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Graphical Abstract Color Accessibility": {
+          "rule": "Graphical Abstract Color Accessibility",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Formats Accepted": {
+          "rule": "Supplementary Formats Accepted",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Size and Aspect Ratio": {
+          "rule": "Supplementary Size and Aspect Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Naming and Citation": {
+          "rule": "Supplementary Naming and Citation",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Supplementary Captions Provided": {
+          "rule": "Supplementary Captions Provided",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Contrast Ratio": {
+          "rule": "Accessibility Contrast Ratio",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Accessibility Non-Color Cues": {
+          "rule": "Accessibility Non-Color Cues",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        },
+        "Figure Layout Column Width Compliance": {
+          "rule": "Figure Layout Column Width Compliance",
+          "decision": false,
+          "justification": "Runtime error analyzing rule: 401 User not found.",
+          "parsedSuccessfully": false
+        }
+      }
+    }
+  ],
+  "ruleCount": 53,
+  "debugIncluded": false
+}
