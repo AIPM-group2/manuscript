@@ -14,6 +14,7 @@
     let analysisProgress = "";
     let error = "";
     let showDetailedResults = false;
+    let uploadedFilePath = ""; // This will store the path of the uploaded file on the server
     let expandedSections = {
         passed: false,
         warnings: false,
@@ -47,6 +48,39 @@
         apiKey.set("");
         analyser = null;
     }
+
+    async function fixRule(rule: string, justification: string) {
+        console.log('Attempting to fix rule:', rule);
+        console.log('Using file path:', uploadedFilePath);
+
+        if (!uploadedFilePath) {
+            alert('Error: No file path is available. Please upload the document again.');
+            console.error('fixRule called without a valid uploadedFilePath.');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/fix', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ rule, justification, documentPath: uploadedFilePath, apiKey: $apiKey }),
+            });
+
+            const result = await response.json();
+            console.log('Fix API response:', result);
+
+            if (response.ok) {
+                alert(`Fix script executed: ${result.message}\nOutput: ${result.output}\n\nThe fixed file is available in the data/autofix/ directory.`);
+                console.log("Generated Python code:", result.pythonCode);
+            } else {
+                alert(`Error: ${result.error}`);
+                console.error('Fix API error:', result.error);
+            }
+        } catch (err) {
+            console.error('Failed to call fix API:', err);
+            alert(`A network error occurred while trying to fix the rule: ${err.message}`);
+        }
+    }
 </script>
 
 {#if $apiKey}
@@ -68,13 +102,30 @@
                         error = "";
                         analysisResult = "";
                         rulesAnalysisResults = {};
-                        analysisProgress = "";
+                        analysisProgress = "Uploading file to server...";
+                        uploadedFilePath = ""; // Reset path
+
                         try {
-                            // First extract content from DOCX file
+                            // Step 1: Upload the file to the server
+                            const formData = new FormData();
+                            formData.append('file', file);
+                            const uploadResponse = await fetch('/api/upload', {
+                                method: 'POST',
+                                body: formData,
+                            });
+
+                            const uploadResult = await uploadResponse.json();
+                            if (!uploadResponse.ok) {
+                                throw new Error(uploadResult.error || 'File upload failed');
+                            }
+                            uploadedFilePath = uploadResult.filePath;
+                            console.log('File uploaded to server at:', uploadedFilePath);
+
+                            // Step 2: Extract content from DOCX file
                             analysisProgress = "Extracting content from DOCX file...";
                             const extractedContent = await analyser.analyzeFile(file);
 
-                            // Then analyze against all pediatric journal rules
+                            // Step 3: Analyze against all pediatric journal rules
                             analysisProgress = `Analyzing document against ${generalRules.length} formatting rules...`;
                             rulesAnalysisResults = await analyser.analyzeRules(file.name, file.type, extractedContent, generalRules);
 
@@ -271,6 +322,12 @@
                                                                     <strong>Justification:</strong>
                                                                     {result.justification}
                                                                 </div>
+                                                                <button
+                                                                    class="fix-btn"
+                                                                    on:click={async () => await fixRule(ruleName, result.justification)}
+                                                                >
+                                                                    Fix this issue
+                                                                </button>
                                                             </div>
                                                         {/if}
                                                     </div>
