@@ -13,6 +13,7 @@ export const generalRules = [
   new FormattingRule(
     "Font Style and Size",
     "Use a normal, plain font such as 10-point Times New Roman for all text.",
+    false
   ), // Guideline 2
 
   new FormattingRule(
@@ -23,6 +24,7 @@ export const generalRules = [
   new FormattingRule(
     "Page Numbering",
     "Use the automatic page numbering function rather than adding numbers manually. Verify that page numbers are generated automatically.",
+    false
   ), // Guideline 4
 
   // TODO check existence and relevance of this rule
@@ -140,12 +142,14 @@ export const generalRules = [
 
   new FormattingRule(
       "Figure Content Exclusion Check",
-      "Confirm that no titles or captions are included inside the figure image files themselves."
+      "Confirm that no titles or captions are included inside the figure image files themselves.",
+      false
   ), // Guideline 26
 
   new FormattingRule(
       "Figure Lettering Check",
-      "Control that figure lettering uses Helvetica or Arial (sans-serif) in an 8–12 pt size, and that this style is consistent across all figures."
+      "Control that figure lettering uses Helvetica or Arial (sans-serif) in an 8–12 pt size, and that this style is consistent across all figures.",
+      false
   ), // Guideline 27
 
   new FormattingRule(

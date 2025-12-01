@@ -1,6 +1,7 @@
 import { AIAnalyser } from "./smarts.js";
 import { generalRules } from "./general_rules.js";
 
+/*
 // Example usage of the new analyzeRules method
 async function exampleUsage() {
   // Initialize the AI analyzer with your API key
@@ -81,4 +82,4 @@ async function analyzeUploadedFile(file: File) {
   }
 }
 
-export { exampleUsage, analyzeUploadedFile };
+export { exampleUsage, analyzeUploadedFile }; */

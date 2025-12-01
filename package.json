@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
+    "@xmldom/xmldom": "^0.8.11",
+    "jszip": "^3.10.1",
     "mammoth": "^1.11.0",
-    "openai": "^6.3.0"
+    "openai": "^6.3.0",
+    "xpath": "^0.0.34"
   }
 }

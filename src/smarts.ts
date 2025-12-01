@@ -1,5 +1,6 @@
 // import OpenAI from "openai";
 import mammoth from "mammoth";
+import JSZip from "jszip";
 import { GoogleGenAI } from "@google/genai";
 
 const MODEL_CHATGPT_4O_MINI = "gpt-4o-mini";
@@ -34,34 +35,47 @@ export class AIAnalyser {
 }
 
 
-  async analyzeFile(file: File): Promise<string> {
-    if (!file.name.endsWith(".docx")) {
-      throw new Error("Only DOCX files are supported");
+async analyzeFile(file: File): Promise<{ html: string; xmlFiles: Record<string, string> }> {
+  // Guideline 1 is checked
+  if (!file.name.endsWith(".docx")) {
+    throw new Error("Only DOCX files are supported");
+  }
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+
+    // ----------- 1) Extract HTML with Mammoth -----------
+    const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
+
+    let htmlResult;
+    if (isNode) {
+      const buffer = Buffer.from(arrayBuffer);
+      htmlResult = await mammoth.convertToHtml({ buffer });
+    } else {
+      htmlResult = await mammoth.convertToHtml({ arrayBuffer });
     }
 
-    try {
-      // Convert file to ArrayBuffer (works in both browser and Node)
-      const arrayBuffer = await file.arrayBuffer();
-  
-      // Detect if running in Node.js (Buffer exists) or browser
-      const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
-  
-      let result;
-  
-      if (isNode) {
-        // Node.js: use Buffer
-        const buffer = Buffer.from(arrayBuffer);
-        result = await mammoth.convertToHtml({ buffer });
-      } else {
-        // Browser: use arrayBuffer directly
-        result = await mammoth.convertToHtml({ arrayBuffer });
+    // ----------- 2) Extract XML files from DOCX -----------
+
+    const zip = await JSZip.loadAsync(arrayBuffer);
+    const xmlFiles: Record<string, string> = {};
+
+    for (const filename of Object.keys(zip.files)) {
+      if (filename.endsWith(".xml")) {
+        const xmlText = await zip.files[filename].async("text");
+        xmlFiles[filename] = xmlText;
       }
-  
-      return result.value;
-    } catch (error: any) {
-      throw new Error(`Failed to process DOCX file: ${error.message}`);
     }
+
+    return {
+      html: htmlResult.value,
+      xmlFiles
+    };
+
+  } catch (error: any) {
+    throw new Error(`Failed to process DOCX file: ${error.message}`);
   }
+}
 
   async analyzeRules(originalFileName: string, originalExtension: string, documentContent: string, rules: FormattingRule[]): Promise<Record<string, RuleAnalysisResult>> {
     // Build a list of rule instructions
