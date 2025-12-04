@@ -1,9 +1,7 @@
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import mammoth from "mammoth";
 
-const MODEL_CHATGPT_4O_MINI = "gpt-4o-mini";
-const MODEL_GEMINI_2_5_FLASH = "google/gemini-2.5-flash-lite";
-const MODEL_META_LLAMA_4_SCOUT = "meta-llama/llama-4-scout";
+const MODEL_GEMINI_2_5_FLASH = "gemini-2.0-flash";
 
 export type RuleAnalysisResult = {
   rule: string;
@@ -12,31 +10,26 @@ export type RuleAnalysisResult = {
 };
 
 export class AIAnalyser {
-  private client: OpenAI;
+  private client: GoogleGenerativeAI;
+  private model: any;
   private parallelThreads: number;
 
   constructor(
     private apiKey: string,
     parallelThreads: number = 8,
   ) {
-    this.client = new OpenAI({
-      baseURL: "https://openrouter.ai/api/v1",
-      apiKey: apiKey,
-      dangerouslyAllowBrowser: true,
-    });
+    this.client = new GoogleGenerativeAI(apiKey);
+    this.model = this.client.getGenerativeModel({ model: MODEL_GEMINI_2_5_FLASH });
     this.parallelThreads = Math.max(1, parallelThreads);
   }
 
   async analyze(data: string): Promise<string> {
-    const response = await this.client.chat.completions.create({
-      model: MODEL_GEMINI_2_5_FLASH,
-      messages: [
-        { role: "system", content: "You are an analytical assistant." },
-        { role: "user", content: data },
-      ],
-    });
+    const result = await this.model.generateContent([
+      { text: "You are an analytical assistant." },
+      { text: data },
+    ]);
 
-    return response.choices[0].message.content ?? "";
+    return result.response.text() ?? "";
   }
 
   async analyzeFile(file: File): Promise<string> {
@@ -47,12 +40,12 @@ export class AIAnalyser {
     try {
       // Convert file to ArrayBuffer (works in both browser and Node)
       const arrayBuffer = await file.arrayBuffer();
-  
+
       // Detect if running in Node.js (Buffer exists) or browser
       const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
-  
+
       let result;
-  
+
       if (isNode) {
         // Node.js: use Buffer
         const buffer = Buffer.from(arrayBuffer);
@@ -61,7 +54,7 @@ export class AIAnalyser {
         // Browser: use arrayBuffer directly
         result = await mammoth.convertToHtml({ arrayBuffer });
       }
-  
+
       return result.value;
     } catch (error: any) {
       throw new Error(`Failed to process DOCX file: ${error.message}`);
@@ -74,7 +67,7 @@ export class AIAnalyser {
       name: rule.name,
       instruction: rule.instruction
     }));
-  
+
     const prompt = `
   You are a manuscript formatting checker.
   Original file: ${originalFileName} (extension: ${originalExtension})
@@ -101,7 +94,7 @@ export class AIAnalyser {
   
   If unsure, still output a best-effort decision.
   `.trim();
-  
+
     const response = await this.analyze(prompt);
     const firstBrace = response.indexOf("{");
     const lastBrace = response.lastIndexOf("}");
@@ -116,9 +109,9 @@ export class AIAnalyser {
     } catch (e) {
       throw new Error(`Failed to parse JSON from AI response: ${jsonString}`);
     }
-  
+
     const results: Record<string, RuleAnalysisResult> = {};
-  
+
     rules.forEach(rule => {
       const entry = parsed[rule.name];
       if (!entry) {
@@ -135,9 +128,9 @@ export class AIAnalyser {
         justification: String(entry.justification ?? "No justification provided")
       };
     });
-  
+
     return results;
-  }  
+  }
 }
 
 export class FormattingRule {
@@ -151,4 +144,3 @@ export class FormattingRule {
     this.requiresAI = requiresAI;
   }
 }
-
