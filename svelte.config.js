@@ -5,7 +5,7 @@ const config = {
   kit: {
     adapter: adapter(),
     paths: {
-      base: process.env.NODE_ENV === "production" ? "/aipm-prototype" : "",
+      base: process.env.NODE_ENV === "production" ? "/manuscript" : "",
     },
   },
 };
