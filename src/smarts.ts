@@ -4,8 +4,9 @@ import JSZip from "jszip";
 import { GoogleGenAI } from "@google/genai";
 
 const MODEL_CHATGPT_4O_MINI = "gpt-4o-mini";
-const MODEL_GEMINI_2_5_FLASH = "google/gemini-2.5-flash-lite";
+const MODEL_OPENROUTER_GEMINI_2_5_FLASH = "google/gemini-2.5-flash-lite";
 const MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"; 
+const MODEL_GEMINI_2_5_FLASH = "gemini-2.5-flash";
 const MODEL_META_LLAMA_4_SCOUT = "meta-llama/llama-4-scout";
 
 export type RuleAnalysisResult = {
@@ -28,7 +29,7 @@ export class AIAnalyser {
 
   async analyze(prompt: string): Promise<string> {
     const response = await this.client.models.generateContent({
-      model: MODEL_GEMINI_2_0_FLASH,
+      model: MODEL_GEMINI_2_5_FLASH,
       contents: prompt,
     });
     return response.text;    
