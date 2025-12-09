@@ -1,5 +1,6 @@
 <script lang="ts">
     import "../../styles/design-system.css";
+    import { base } from "$app/paths";
 
     let activeSection = "introduction";
 
@@ -20,7 +21,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <a href="/" class="brand">
+            <a href="{base}/" class="brand">
                 <div class="logo-icon">A</div>
                 <span>ApexScript</span>
             </a>
@@ -40,7 +41,7 @@
         </nav>
 
         <div class="sidebar-footer">
-            <a href="/login" class="btn btn-secondary w-full">Log In</a>
+            <a href="{base}/login" class="btn btn-secondary w-full">Log In</a>
         </div>
     </aside>
 
