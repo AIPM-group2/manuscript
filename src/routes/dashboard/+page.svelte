@@ -3,19 +3,19 @@
     import "../../styles/design-system.css";
     import { user, apiKey, logout, saveApiKey } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
-    import { base } from "$app/paths";
     import * as smarts from "../../smarts.js";
     import { generalRules } from "../../general_rules.js";
     import GridBackground from "$lib/components/GridBackground.svelte";
+    import { runDeterministicChecks } from '../../deterministic_checks.js';
 
     // Redirect if not logged in
     onMount(() => {
         if (!$user) {
-            goto(`${base}/login`);
+            goto("/login");
         }
     });
 
-    let analyser: smarts.AIAnalyser | null = null;
+    let analyzer: smarts.AIAnalyser | null = null;
     let apiKeyInput = "";
     let showApiKeyModal = false;
     let rulesAnalysisResults: Record<string, smarts.RuleAnalysisResult> = {};
@@ -28,7 +28,7 @@
     let isDragging = false;
 
     $: if ($apiKey) {
-        analyser = new smarts.AIAnalyser($apiKey);
+        analyzer = new smarts.AIAnalyser($apiKey);
     }
 
     $: passedRules = Object.entries(rulesAnalysisResults).filter(
@@ -58,7 +58,7 @@
     }
 
     async function handleFileUpload(file: File) {
-        if (!file || !analyser) {
+        if (!file || !analyzer) {
             showApiKeyModal = true;
             return;
         }
@@ -70,19 +70,25 @@
 
         try {
             analysisProgress = "Reading document structure...";
-            const extractedContent = await analyser.analyzeFile(file);
-
+        
+            const rulesToCheck = generalRules.filter((rule) => rule.requiresAI);
+            const { html, xmlFiles, arrayBuffer } = await analyzer.analyzeFile(file);
+            
             analysisProgress = "Checking journal compliance...";
-            rulesAnalysisResults = await analyser.analyzeRules(
+            const aiResults = await analyzer.analyzeRules(
                 file.name,
                 file.type,
-                extractedContent,
-                generalRules,
+                html,
+                rulesToCheck,
             );
+
+            const deterministic = runDeterministicChecks(xmlFiles, arrayBuffer, analyzer);
+            const detMap = Object.fromEntries((await deterministic).map((r) => [r.rule, r]));
+            rulesAnalysisResults = { ...aiResults, ...detMap };
 
             analysisProgress = "";
             const firstError = Object.keys(rulesAnalysisResults).find(
-                (key) => !rulesAnalysisResults[key].decision,
+                (key) => !rulesAnalysisResults[key].decision  
             );
             if (firstError) {
                 selectedIssue = firstError;
@@ -119,7 +125,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-content">
-            <a href="{base}/" class="brand">
+            <a href="/" class="brand">
                 <div class="logo-icon">A</div>
                 <span>ApexScript</span>
             </a>

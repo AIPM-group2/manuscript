@@ -1,7 +1,13 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import OpenAI from "openai";
 import mammoth from "mammoth";
+import JSZip from "jszip";
+import { GoogleGenAI } from "@google/genai";
 
-const MODEL_GEMINI_2_5_FLASH = "gemini-2.0-flash";
+const MODEL_CHATGPT_4O_MINI = "gpt-4o-mini";
+const MODEL_OPENROUTER_GEMINI_2_5_FLASH = "google/gemini-2.5-flash-lite";
+const MODEL_GEMINI_2_0_FLASH = "gemini-2.0-flash"; 
+const MODEL_GEMINI_2_5_FLASH = "gemini-2.5-flash"; 
+const MODEL_META_LLAMA_4_SCOUT = "meta-llama/llama-4-scout";
 
 export type RuleAnalysisResult = {
   rule: string;
@@ -10,56 +16,68 @@ export type RuleAnalysisResult = {
 };
 
 export class AIAnalyser {
-  private client: GoogleGenerativeAI;
-  private model: any;
+  private client: any;
   private parallelThreads: number;
 
   constructor(
     private apiKey: string,
     parallelThreads: number = 8,
   ) {
-    this.client = new GoogleGenerativeAI(apiKey);
-    this.model = this.client.getGenerativeModel({ model: MODEL_GEMINI_2_5_FLASH });
+    this.client = new GoogleGenAI({ apiKey: this.apiKey });
     this.parallelThreads = Math.max(1, parallelThreads);
   }
 
-  async analyze(data: string): Promise<string> {
-    const result = await this.model.generateContent([
-      { text: "You are an analytical assistant." },
-      { text: data },
-    ]);
+  async analyze(prompt: string): Promise<string> {
+    const response = await this.client.models.generateContent({
+      model: MODEL_GEMINI_2_0_FLASH,
+      contents: prompt,
+    });
+    return response.text;    
+}
 
-    return result.response.text() ?? "";
+
+async analyzeFile(file: File): Promise<{ html: string; xmlFiles: Record<string, string>; arrayBuffer: ArrayBuffer }> {
+  // Guideline 1 is checked
+  if (!file.name.endsWith(".docx")) {
+    throw new Error("Only DOCX files are supported");
   }
 
-  async analyzeFile(file: File): Promise<string> {
-    if (!file.name.endsWith(".docx")) {
-      throw new Error("Only DOCX files are supported");
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+
+    // ----------- 1) Extract HTML with Mammoth -----------
+    const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
+
+    let htmlResult;
+    if (isNode) {
+      const buffer = Buffer.from(arrayBuffer);
+      htmlResult = await mammoth.convertToHtml({ buffer });
+    } else {
+      htmlResult = await mammoth.convertToHtml({ arrayBuffer });
     }
 
-    try {
-      // Convert file to ArrayBuffer (works in both browser and Node)
-      const arrayBuffer = await file.arrayBuffer();
+    // ----------- 2) Extract XML files from DOCX -----------
 
-      // Detect if running in Node.js (Buffer exists) or browser
-      const isNode = typeof Buffer !== "undefined" && typeof window === "undefined";
+    const zip = await JSZip.loadAsync(arrayBuffer);
+    const xmlFiles: Record<string, string> = {};
 
-      let result;
-
-      if (isNode) {
-        // Node.js: use Buffer
-        const buffer = Buffer.from(arrayBuffer);
-        result = await mammoth.convertToHtml({ buffer });
-      } else {
-        // Browser: use arrayBuffer directly
-        result = await mammoth.convertToHtml({ arrayBuffer });
+    for (const filename of Object.keys(zip.files)) {
+      if (filename.endsWith(".xml")) {
+        const xmlText = await zip.files[filename].async("text");
+        xmlFiles[filename] = xmlText;
       }
-
-      return result.value;
-    } catch (error: any) {
-      throw new Error(`Failed to process DOCX file: ${error.message}`);
     }
+
+    return {
+      html: htmlResult.value,
+      xmlFiles,
+      arrayBuffer
+    };
+
+  } catch (error: any) {
+    throw new Error(`Failed to process DOCX file: ${error.message}`);
   }
+}
 
   async analyzeRules(originalFileName: string, originalExtension: string, documentContent: string, rules: FormattingRule[]): Promise<Record<string, RuleAnalysisResult>> {
     // Build a list of rule instructions
@@ -79,6 +97,7 @@ export class AIAnalyser {
   Here is the list of formatting rules you must evaluate.
   You MUST output strictly valid JSON. 
   Do NOT output explanations, markdown, code fences, comments, backticks or text outside the JSON.
+  Do NOT add any commas or brackets inside the explanation.
   Your entire output must be a single JSON object (not an array), where each key is the rule name and the value is an object:
 
   

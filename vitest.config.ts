@@ -6,7 +6,8 @@ dotenv.config({ path: ".env.test" });
 export default defineConfig({
   test: {
     env: {
-      OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
+      //OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
+      GEMINI_API_KEY: process.env.GEMINI_API_KEY,
     },
     environment: "node",
     globals: true,

@@ -13,27 +13,30 @@ export const generalRules = [
   new FormattingRule(
     "Font Style and Size",
     "Use a normal, plain font such as 10-point Times New Roman for all text.",
+    false
   ), // Guideline 2
 
   new FormattingRule(
     "Emphasis Style",
-    "Use italics for emphasis; do not use bold or underlining for emphasis. Check for misuse of bold/underline for emphasis in the main text.",
+    "Use italics for emphasis; do not use bold or underlining for emphasis. Check for misuse of bold/underline for emphasis in the main text. Bold may be used for headings or within figure captions.",
   ), // Guideline 3
 
   new FormattingRule(
     "Page Numbering",
     "Use the automatic page numbering function rather than adding numbers manually. Verify that page numbers are generated automatically.",
+    false
   ), // Guideline 4
 
-  // TODO check existence and relevance of this rule
   new FormattingRule(
     "Field Functions",
     "Do not use field functions in the document (e.g., linked fields, auto-text fields).",
+    false
   ), // Guideline 5
 
   new FormattingRule(
     "Indentation Method",
     "Use tab stops or paragraph commands for indents, never the space bar. Check for multiple consecutive spaces at the beginning of paragraphs.",
+    false
   ), // Guideline 6
 
   new FormattingRule(
@@ -54,6 +57,7 @@ export const generalRules = [
   new FormattingRule(
     "Line Spacing and Word Count Approximation",
     "Type text double-spaced. This is a visual check; approximately 250 words per double-spaced page can be used as a rough length estimate.",
+    false
   ), // Guideline 10
 
   // --- Title Page Formatting Rules ---
@@ -119,18 +123,18 @@ export const generalRules = [
   // probably unapplicable since only access to the .docx file
   new FormattingRule(
       "Figure File Submission Check",
-      "Verify that figures are submitted as separate files and named sequentially using the specified format (e.g., “Fig1.eps,” “Fig2.tif”)."
+      "Verify that figures are submitted as separate files and named sequentially using 'Fig' and the figure number (e.g., “Fig1.eps,” “Fig2.tif”)."
   ), // Guideline 22
 
   // might not be verifiable 
   new FormattingRule(
       "Figure Format & Resolution Check (Vector/Halftone)",
-      "Confirm that vector graphics use the EPS format (with embedded fonts) and halftone images use the TIFF format (minimum resolution of 300 dpi)."
+      "Confirm that vector graphics use the EPS format (with embedded fonts) and halftone images use the TIFF format (minimum resolution of 300 dpi). MSOffice files are also acceptable."
   ), // Guideline 23
 
   new FormattingRule(
-      "Figure Resolution Check (Line/Combination)",
-      "Ensure the minimum resolution is 1200 dpi for line drawings and 600 dpi for combination artwork."
+      "Figure Resolution Check for Line Art, Halftone Art and Combination Art",
+      "Line Art is a black and white graphic with no shading. All lines should be at least 0.1 mm (0.3 pt) wide. Ensure scanned line drawings and line drawings in bitmap format should have a minimum resolution of 1200 dpi. Halftone Arts are photographs, drawings, or paintings with fine shading, etc. Halftones should have a minimum resolution of 300 dpi. Combination Art contains both halftone and line art elements. Combination art should have a minimum resolution of 600 dpi."
   ), // Guideline 24
 
   new FormattingRule(
@@ -140,12 +144,14 @@ export const generalRules = [
 
   new FormattingRule(
       "Figure Content Exclusion Check",
-      "Confirm that no titles or captions are included inside the figure image files themselves."
+      "Confirm that no titles or captions are included inside the figure image files themselves.",
+      true
   ), // Guideline 26
 
   new FormattingRule(
       "Figure Lettering Check",
-      "Control that figure lettering uses Helvetica or Arial (sans-serif) in an 8–12 pt size, and that this style is consistent across all figures."
+      "Figure lettering should use Helvetica or Arial (sans-serif fonts), lettering consistently sized throughout final-sized artwork, usually 8–12 pt. Variance of type size within an illustration should be minimal. Avoid effects such as shading, outline letters, etc. Titles or captions should not be included inside illustrations.",
+      true
   ), // Guideline 27
 
   new FormattingRule(
@@ -228,64 +234,59 @@ export const generalRules = [
       "Assess whether common reference types follow expected formats (journal article, book, book chapter, online document, dissertation). Tolerate minor punctuation variance but flag missing essential fields (authors, title, venue, year; publisher for books; editors for chapters; URL/DOI for online).",
   ), // Guideline 42
 
-  new FormattingRule(
-      "LaTeX Bibliography Style (If Applicable)",
-      "If the manuscript is prepared in LaTeX (detected via TeX artifacts or mentions), ensure use of Springer 'sn-basic.bst' for the bibliography. If the manuscript is a Word/DOCX document, mark as not applicable and explain.",
-  ), // Guideline 43
-
   
   // Graphical Abstract
   new FormattingRule(
       "Graphical Abstract Submission",
       "Verify that a graphical abstract is submitted as a single PowerPoint slide following the official Springer template. From manuscript text, look for mentions of 'Graphical abstract' and template compliance; if unverifiable from the DOCX, mark as requiring manual verification and explain.",
-  ), // Guideline 44
+  ), // Guideline 43
 
   new FormattingRule(
       "Graphical Abstract Template Compliance",
       "Confirm that the graphical abstract follows the template's background, font, and layout instructions exactly. If the manuscript text includes a checklist or statement of compliance, accept; otherwise note that this typically requires manual inspection of the PPT file.",
-  ), // Guideline 45
+  ), // Guideline 44
 
   new FormattingRule(
       "Graphical Abstract Color Accessibility",
       "Advise against color combinations problematic for color blindness (e.g., red/green, blue/black). If color usage is described, check for accessible palettes; otherwise note that verification may require visual inspection.",
-  ), // Guideline 46
+  ), // Guideline 45
 
   
   // Supplementary Material
   new FormattingRule(
       "Supplementary Formats Accepted",
       "Confirm that listed supplementary materials are in accepted formats (.avi, .mp4, .mov, .wmv, .m4v, .pdf, .xlsx, .csv). If only referenced in text, verify stated extensions; if files are not available via DOCX, note that this requires manual file review.",
-  ), // Guideline 47
+  ), // Guideline 46
 
   new FormattingRule(
       "Supplementary Size and Aspect Ratio",
       "Where file properties are stated, check that supplementary files do not exceed 2 GB and that videos target 16:9 or 4:3 aspect ratios. If properties are not stated and files are not attached, note that this is a manual verification item.",
-  ), // Guideline 48
+  ), // Guideline 47
 
   new FormattingRule(
       "Supplementary Naming and Citation",
       "Ensure supplementary files are named consecutively and cited in text as 'Online Resource 1', 'Online Resource 2', etc., with consistent numbering and references in the manuscript.",
-  ), // Guideline 49
+  ), // Guideline 48
 
   new FormattingRule(
       "Supplementary Captions Provided",
       "Verify that each supplementary item has a concise caption or legend describing content and purpose, either within a dedicated section or near the first in-text mention.",
-  ), // Guideline 50
+  ), // Guideline 49
 
   
   // Accessibility & Layout
   new FormattingRule(
       "Accessibility Contrast Ratio",
       "Ensure that figure and text color combinations meet a contrast ratio of at least 4.5:1. If only document text is available, flag as requiring manual visual check and suggest using accessible palettes.",
-  ), // Guideline 51
+  ), // Guideline 50
 
   new FormattingRule(
       "Accessibility Non-Color Cues",
       "Check that figures rely on patterns/textures or labels in addition to color to differentiate elements (e.g., line styles, hatch patterns). If not determinable from text alone, note manual verification is required.",
-  ), // Guideline 52
+  ), // Guideline 51
 
   new FormattingRule(
       "Figure Layout Column Width Compliance",
       "For layouts targeting Springer formats, verify that figures are sized to fit standard column widths (approx. 84 mm for double-column or 174 mm for single-column). From DOCX text, look for explicit sizing notes; otherwise flag as a layout check for production stage.",
-  ), // Guideline 53  
+  ), // Guideline 52
 ];
