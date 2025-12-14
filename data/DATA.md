@@ -135,3 +135,9 @@ Original version is article1-0.pdf and article1-0.docx (auto-converted by Word).
 - Break guideline 42 on page 2501: no chapter and paragraphs mentionned in references 16 to 18.
 
 
+## Article 2
+
+#### Original
+
+From Dr. Toso's supervised student.
+Known broken guidelines: bibliography and source way of citing.

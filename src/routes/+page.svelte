@@ -3,6 +3,7 @@
     import { user } from "$lib/stores/auth";
     import GridBackground from "$lib/components/GridBackground.svelte";
     import PricingSection from "$lib/components/PricingSection.svelte";
+    import { base } from "$app/paths";
 
     let activeFaq = -1;
     let contactForm = { name: "", email: "", message: "" };
@@ -76,20 +77,20 @@
 <!-- Navigation -->
 <nav class="nav">
     <div class="container nav-content">
-        <a href="/" class="brand">
+        <a href="{base}/" class="brand">
             <div class="logo-icon">A</div>
             <span>ApexScript</span>
         </a>
         <div class="nav-links">
-            <a href="#pricing">Pricing</a>
-            <a href="/docs">Documentation</a>
+            <a href="{base}/pricing">Pricing</a>
+            <a href="{base}/docs">Documentation</a>
             <a href="#features">Features</a>
             {#if $user}
-                <a href="/dashboard" class="btn btn-primary btn-sm">Dashboard</a
+                <a href="{base}/dashboard" class="btn btn-primary btn-sm">Dashboard</a
                 >
             {:else}
-                <a href="/login" class="btn btn-ghost btn-sm">Log in</a>
-                <a href="/signup" class="btn btn-primary btn-sm">Sign up</a>
+                <a href="{base}/login" class="btn btn-ghost btn-sm">Log in</a>
+                <a href="{base}/signup" class="btn btn-primary btn-sm">Sign up</a>
             {/if}
         </div>
     </div>
@@ -110,8 +111,8 @@
             analysis, and more.
         </p>
         <div class="hero-actions">
-            <a href="/signup" class="btn btn-primary btn-lg">Try for free</a>
-            <a href="/docs" class="btn btn-secondary btn-lg">Documentation</a>
+            <a href="{base}/signup" class="btn btn-primary btn-lg">Try for free</a>
+            <a href="{base}/docs" class="btn btn-secondary btn-lg">Documentation</a>
         </div>
 
         <div class="trusted-by">
@@ -207,15 +208,15 @@
             <div class="footer-links">
                 <div>
                     <h4>Product</h4>
-                    <a href="#pricing">Pricing</a>
-                    <a href="/docs">Docs</a>
-                    <a href="/dashboard">Dashboard</a>
+                    <a href="{base}/pricing">Pricing</a>
+                    <a href="{base}/docs">Docs</a>
+                    <a href="{base}/dashboard">Dashboard</a>
                 </div>
                 <div>
                     <h4>Company</h4>
-                    <a href="/about">About</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/contact">Contact</a>
+                    <a href="{base}/about">About</a>
+                    <a href="{base}/blog">Blog</a>
+                    <a href="{base}/contact">Contact</a>
                 </div>
             </div>
         </div>

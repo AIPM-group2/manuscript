@@ -2,6 +2,7 @@
     import "../../styles/design-system.css";
     import { signup } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
+    import { base } from "$app/paths";
 
     let form = {
         name: "",
@@ -26,19 +27,19 @@
         }
 
         signup(form.email, form.password, form.name);
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 
     function signupWithGoogle() {
         // Demo: simulate Google OAuth
         signup("google@example.com", "google-auth", "Google User");
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 
     function signupWithGitHub() {
         // Demo: simulate GitHub OAuth
         signup("github@example.com", "github-auth", "GitHub User");
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 </script>
 
@@ -53,7 +54,7 @@
         <!-- Logo -->
         <div style="text-align: center; margin-bottom: var(--spacing-8);">
             <a
-                href="/"
+                href="{base}/"
                 style="font-size: 2rem; font-weight: 800; color: var(--primary); text-decoration: none;"
             >
                 <span
@@ -203,7 +204,7 @@
                 >
                     Already have an account?
                     <a
-                        href="/login"
+                        href="{base}/login"
                         style="color: var(--primary); font-weight: 600; text-decoration: none;"
                         >Log in</a
                     >

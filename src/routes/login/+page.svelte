@@ -2,6 +2,7 @@
     import "../../styles/design-system.css";
     import { login } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
+    import { base } from "$app/paths";
 
     let form = {
         email: "",
@@ -19,17 +20,17 @@
         }
 
         login(form.email, form.password);
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 
     function loginWithGoogle() {
         login("google@example.com", "google-auth");
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 
     function loginWithGitHub() {
         login("github@example.com", "github-auth");
-        goto("/dashboard");
+        goto(`${base}/dashboard`);
     }
 </script>
 
@@ -44,7 +45,7 @@
         <!-- Logo -->
         <div style="text-align: center; margin-bottom: var(--spacing-8);">
             <a
-                href="/"
+                href="{base}/"
                 style="font-size: 2rem; font-weight: 800; color: var(--primary); text-decoration: none;"
             >
                 <span
@@ -159,7 +160,7 @@
                     style="text-align: right; margin-bottom: var(--spacing-6);"
                 >
                     <a
-                        href="/forgot-password"
+                        href="{base}/forgot-password"
                         style="font-size: 0.875rem; color: var(--primary); text-decoration: none;"
                         >Forgot password?</a
                     >
@@ -178,7 +179,7 @@
                 >
                     Don't have an account?
                     <a
-                        href="/signup"
+                        href="{base}/signup"
                         style="color: var(--primary); font-weight: 600; text-decoration: none;"
                         >Sign up</a
                     >

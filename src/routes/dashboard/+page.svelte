@@ -3,6 +3,7 @@
     import "../../styles/design-system.css";
     import { user, apiKey, logout, saveApiKey } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
+    import { base } from "$app/paths";
     import * as smarts from "../../smarts.js";
     import { Analyzer } from "../../analyzer";
     import { generalRules } from "../../general_rules.js";
@@ -25,7 +26,7 @@
     // Redirect if not logged in
     onMount(() => {
         if (!$user) {
-            goto("/login");
+            goto(`${base}/login`);
         }
     });
 
@@ -489,7 +490,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-content">
-            <a href="/" class="brand">
+            <a href="{base}/" class="brand">
                 <div class="logo-icon">A</div>
                 <span>ApexScript</span>
             </a>
