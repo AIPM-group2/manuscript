@@ -7,6 +7,8 @@ export type RuleAnalysisResult = {
   rule: string;
   decision: boolean;
   justification: string;
+  instruction?: string;
+  [key: string]: any; // Allow extensibility for JSON export
 };
 
 export class AIAnalyser {
@@ -137,10 +139,12 @@ export class FormattingRule {
   name: string;
   instruction: string;
   requiresAI: boolean;
+  autoFixable: boolean;
 
-  constructor(name: string, instruction: string, requiresAI: boolean = true) {
+  constructor(name: string, instruction: string, requiresAI: boolean = true, autoFixable: boolean = false) {
     this.name = name;
     this.instruction = instruction;
     this.requiresAI = requiresAI;
+    this.autoFixable = autoFixable;
   }
 }

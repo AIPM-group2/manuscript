@@ -1,13 +1,13 @@
 /* ApexScript Simplex Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
     /* Simplex Theme Colors */
-    --primary: #4f46e5;
-    /* Indigo/Blurple */
-    --primary-light: #6366f1;
-    --primary-dark: #4338ca;
+    --primary: #2657c1;
+    /* Blue (EPFL/Basel) */
+    --primary-light: #3b6fd9;
+    --primary-dark: #1e4a9e;
 
     --bg-body: #f8f9fa;
     /* Off-white background */
@@ -33,6 +33,18 @@
     --error: #ef4444;
     --warning: #f59e0b;
 
+    /* AutoFix Colors - Editorial Palette */
+    --fix-accept: #2D6A4F;
+    /* Deep forest green */
+    --fix-reject: #9D4E4E;
+    /* Muted burgundy */
+    --fix-pending: #C9A227;
+    /* Golden amber */
+    --fix-bg: #FAF7F2;
+    /* Warm paper */
+    --diff-add: rgba(45, 106, 79, 0.15);
+    --diff-remove: rgba(157, 78, 78, 0.15);
+
     /* Spacing */
     --spacing-1: 0.25rem;
     --spacing-2: 0.5rem;
@@ -45,8 +57,9 @@
     --spacing-20: 5rem;
     --spacing-24: 6rem;
 
-    /* Typography */
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Typography - Editorial Fonts */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Radius */
