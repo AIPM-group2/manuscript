@@ -4,8 +4,23 @@
     import { user, apiKey, logout, saveApiKey } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
     import * as smarts from "../../smarts.js";
+    import { Analyzer } from "../../analyzer";
     import { generalRules } from "../../general_rules.js";
     import GridBackground from "$lib/components/GridBackground.svelte";
+    import AutoFixPanel from "$lib/components/AutoFixPanel.svelte";
+    import FixSummaryBar from "$lib/components/FixSummaryBar.svelte";
+    import DocumentViewer from "$lib/components/DocumentViewer.svelte";
+    import BatchFixPanel from "$lib/components/BatchFixPanel.svelte";
+    import {
+        AutoFixService,
+        type AutoFixResult,
+        type FixGenerationRequest,
+    } from "../../services/autofix";
+    import { DocxSmartEditor } from "../../services/docx-smart-editor";
+    import type { RuleResult } from "../../types/rules";
+
+    // Confidence threshold: hide results below this to reduce false positives
+    const CONFIDENCE_THRESHOLD = 0.5; // Only show results with >=50% confidence
 
     // Redirect if not logged in
     onMount(() => {
@@ -14,7 +29,8 @@
         }
     });
 
-    let analyser: smarts.AIAnalyser | null = null;
+    let analyser: Analyzer | null = null;
+    let autoFixService: AutoFixService | null = null;
     let apiKeyInput = "";
     let showApiKeyModal = false;
     let rulesAnalysisResults: Record<string, smarts.RuleAnalysisResult> = {};
@@ -26,8 +42,27 @@
     let activeTab: "all" | "errors" | "passed" = "all";
     let isDragging = false;
 
+    // AutoFix state
+    let fixes: AutoFixResult[] = [];
+    let currentFix: AutoFixResult | null = null;
+    let isGeneratingFix = false;
+    let isExporting = false;
+    let uploadedBuffer: ArrayBuffer | null = null;
+
+    // Batch fix state
+    let isBatchGenerating = false;
+    let batchProgress = 0;
+    let batchCurrentRule = "";
+    let fixMode: "single" | "batch" = "batch";
+
+    // Document Viewer state
+    let documentHtml: string = "";
+    let validationResults: RuleResult[] = [];
+    let selectedError: RuleResult | null = null;
+
     $: if ($apiKey) {
-        analyser = new smarts.AIAnalyser($apiKey);
+        analyser = new Analyzer($apiKey);
+        autoFixService = new AutoFixService($apiKey);
     }
 
     $: passedRules = Object.entries(rulesAnalysisResults).filter(
@@ -66,28 +101,69 @@
         error = "";
         rulesAnalysisResults = {};
         uploadedFileName = file.name;
+        documentHtml = "";
+        validationResults = [];
 
         try {
             analysisProgress = "Reading document structure...";
-            const extractedContent = await analyser.analyzeFile(file);
+            const buffer = await file.arrayBuffer();
+            uploadedBuffer = buffer;
 
-            analysisProgress = "Checking journal compliance...";
-            rulesAnalysisResults = await analyser.analyzeRules(
+            analysisProgress =
+                "Checking compliance with Pediatric Radiology guidelines...";
+            const report = await analyser.analyzeManuscript(
+                buffer,
                 file.name,
-                file.type,
-                extractedContent,
-                generalRules,
+                "pediatric-radiology",
             );
+
+            analysisProgress = "Finalizing report...";
+
+            // Store raw HTML for DocumentViewer
+            documentHtml = (report as any).rawHtml || "";
+
+            // Store validation results (with location info) for DocumentViewer
+            validationResults = report.results.filter(
+                (r) => r.status === "FAIL" || r.status === "WARNING",
+            );
+
+            // Map new architecture results to old UI format (for backward compat)
+            const mappedResults: Record<string, any> = {};
+
+            report.results.forEach((result: any) => {
+                const key = result.name;
+                mappedResults[key] = {
+                    rule: result.name,
+                    decision: result.status === "PASS",
+                    justification:
+                        result.message +
+                        (result.suggestion
+                            ? `\n\nSuggestion: ${result.suggestion}`
+                            : ""),
+                    instruction:
+                        result.details?.instruction ||
+                        result.description ||
+                        "Semantic rule from journal guidelines.",
+                    // Enhanced fields for detailed proof export
+                    reasoning: result.reasoning,
+                    status: result.status,
+                    snippet: result.snippet,
+                    details: result.details,
+                };
+            });
+
+            rulesAnalysisResults = mappedResults as any;
 
             analysisProgress = "";
-            const firstError = Object.keys(rulesAnalysisResults).find(
-                (key) => !rulesAnalysisResults[key].decision,
-            );
-            if (firstError) {
-                selectedIssue = firstError;
+
+            // Select first error in DocumentViewer
+            if (validationResults.length > 0) {
+                selectedError = validationResults[0];
+                selectedIssue = validationResults[0].name;
                 activeTab = "errors";
             }
         } catch (err: any) {
+            console.error("Analysis Error:", err);
             error = err.message || "Analysis failed";
             analysisProgress = "";
         } finally {
@@ -95,16 +171,311 @@
         }
     }
 
+    // =========================================================================
+    // AUTOFIX HANDLERS
+    // =========================================================================
+
+    async function handleGenerateFix(ruleName: string) {
+        if (!autoFixService || !selectedIssue) return;
+
+        const result = rulesAnalysisResults[ruleName];
+        if (!result || result.decision) return; // Don't fix passed rules
+
+        isGeneratingFix = true;
+        currentFix = null;
+
+        try {
+            // Find the rule definition
+            const rule = generalRules.find((r) => r.name === ruleName);
+
+            // Extract content for this rule
+            const originalContent =
+                result.snippet || result.justification || "";
+
+            // Use new request-based API
+            const request: FixGenerationRequest = {
+                ruleId: 0,
+                ruleName,
+                ruleDescription:
+                    rule?.instruction || "Check compliance with guideline",
+                originalContent,
+                validationMessage: result.justification,
+            };
+
+            const fix = await autoFixService.generateFix(request);
+            currentFix = fix;
+
+            // Add to fixes array if not already present
+            const existingIdx = fixes.findIndex((f) => f.ruleName === ruleName);
+            if (existingIdx >= 0) {
+                fixes[existingIdx] = fix;
+            } else {
+                fixes = [...fixes, fix];
+            }
+        } catch (err: any) {
+            console.error("Fix generation error:", err);
+            error = `Fix generation failed: ${err.message}`;
+        } finally {
+            isGeneratingFix = false;
+        }
+    }
+
+    // Batch fix generation
+    async function handleStartBatch() {
+        if (!autoFixService) return;
+
+        isBatchGenerating = true;
+        batchProgress = 0;
+        fixes = [];
+
+        try {
+            // Build requests for all failed rules
+            const requests: FixGenerationRequest[] = failedRules.map(
+                ([name, result], idx) => {
+                    const rule = generalRules.find((r) => r.name === name);
+                    return {
+                        ruleId: idx,
+                        ruleName: name,
+                        ruleDescription:
+                            rule?.instruction ||
+                            "Check compliance with guideline",
+                        originalContent:
+                            result.snippet || result.justification || "",
+                        validationMessage: result.justification,
+                    };
+                },
+            );
+
+            // Use the batch generator
+            for await (const event of autoFixService.generateBatchFixes(
+                requests,
+            )) {
+                if (event.type === "started") {
+                    batchCurrentRule = event.ruleName || "";
+                } else if (event.type === "completed" && event.result) {
+                    batchProgress = event.progress || 0;
+                    fixes = [...fixes, event.result];
+                } else if (event.type === "error") {
+                    console.error(
+                        `Batch fix error for ${event.ruleName}:`,
+                        event.error,
+                    );
+                } else if (event.type === "allComplete") {
+                    batchProgress = 1;
+                }
+            }
+        } catch (err: any) {
+            console.error("Batch fix error:", err);
+            error = `Batch fix failed: ${err.message}`;
+        } finally {
+            isBatchGenerating = false;
+            batchCurrentRule = "";
+        }
+    }
+
+    function handleCancelBatch() {
+        isBatchGenerating = false;
+        batchCurrentRule = "";
+    }
+
+    function handleAcceptAllVerified() {
+        fixes = fixes.map((f) =>
+            f.verified || f.status === "generated"
+                ? { ...f, status: "accepted" as const }
+                : f,
+        );
+        if (
+            currentFix &&
+            (currentFix.verified || currentFix.status === "generated")
+        ) {
+            currentFix = { ...currentFix, status: "accepted" };
+        }
+    }
+
+    function handleReviewFix(fix: AutoFixResult) {
+        currentFix = fix;
+        selectedIssue = fix.ruleName;
+    }
+
+    function handleAcceptFix(fix: AutoFixResult) {
+        fix.status = "accepted";
+        currentFix = { ...fix };
+        fixes = fixes.map((f) =>
+            f.ruleName === fix.ruleName ? { ...f, status: "accepted" } : f,
+        );
+    }
+
+    function handleRejectFix(fix: AutoFixResult) {
+        fix.status = "rejected";
+        currentFix = { ...fix };
+        fixes = fixes.map((f) =>
+            f.ruleName === fix.ruleName ? { ...f, status: "rejected" } : f,
+        );
+    }
+
+    function handleApplyAllFixes() {
+        fixes = fixes.map((f) =>
+            f.status === "generated" ? { ...f, status: "accepted" } : f,
+        );
+        if (currentFix && currentFix.status === "generated") {
+            currentFix = { ...currentFix, status: "accepted" };
+        }
+    }
+
+    function handleClearFixes() {
+        fixes = [];
+        currentFix = null;
+    }
+
+    async function handleExportFixed() {
+        if (!uploadedBuffer) {
+            error = "No document uploaded";
+            return;
+        }
+
+        isExporting = true;
+        try {
+            const acceptedFixes = fixes.filter((f) => f.status === "accepted");
+
+            if (acceptedFixes.length === 0) {
+                error = "No fixes to apply. Accept at least one fix first.";
+                isExporting = false;
+                return;
+            }
+
+            // Use the new DocxSmartEditor for reliable text replacement
+            const editor = new DocxSmartEditor(uploadedBuffer);
+
+            // Apply each accepted fix
+            for (const fix of acceptedFixes) {
+                if (
+                    fix.original &&
+                    fix.suggested &&
+                    fix.original !== fix.suggested
+                ) {
+                    const result = editor.replace(fix.original, fix.suggested);
+                    if (result.success) {
+                        console.log(`✓ Applied fix for: ${fix.ruleName}`);
+                    } else {
+                        console.warn(`✗ ${fix.ruleName}: ${result.message}`);
+                    }
+                }
+            }
+
+            // Generate the modified DOCX
+            const blob = editor.export();
+            const changeLog = editor.getChangeSummary();
+
+            // Download the modified document
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `fixed-${uploadedFileName}`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // Log changes
+            if (changeLog.length > 0) {
+                console.log("Changes applied:");
+                changeLog.forEach((c) => console.log(c));
+            }
+
+            // Update fix statuses
+            fixes = fixes.map((f) =>
+                f.status === "accepted"
+                    ? { ...f, status: "applied" as const }
+                    : f,
+            );
+        } catch (err: any) {
+            console.error("Export error:", err);
+            error = `Export failed: ${err.message}`;
+        } finally {
+            isExporting = false;
+        }
+    }
+
     function exportResults() {
-        const blob = new Blob([JSON.stringify(rulesAnalysisResults, null, 2)], {
-            type: "application/json",
-        });
+        // Build comprehensive validation report
+        const report = {
+            meta: {
+                fileName: uploadedFileName,
+                exportedAt: new Date().toISOString(),
+                version: "1.0.0",
+            },
+            summary: {
+                passRate: passRate,
+                totalChecks:
+                    Object.keys(rulesAnalysisResults).length +
+                    validationResults.length,
+                passed:
+                    passedRules.length +
+                    validationResults.filter((r) => r.status === "PASS").length,
+                failed:
+                    failedRules.length +
+                    validationResults.filter((r) => r.status === "FAIL").length,
+                warnings: validationResults.filter(
+                    (r) => r.status === "WARNING",
+                ).length,
+            },
+            semanticResults: Object.entries(rulesAnalysisResults).map(
+                ([ruleName, result]) => ({
+                    ruleName,
+                    decision: result.decision,
+                    justification: result.justification,
+                    confidence: result.confidence || 0.8,
+                    type: "semantic",
+                }),
+            ),
+            programmaticResults: validationResults.map((result) => ({
+                ruleId: result.ruleId,
+                ruleName: result.name,
+                status: result.status,
+                message: result.message,
+                confidence: result.confidence || 1.0,
+                snippet: result.snippet || result.location?.text,
+                suggestion: result.suggestion,
+                autoFixable: result.autoFixable || false,
+                type: "programmatic",
+            })),
+            issues: [
+                ...failedRules.map(([name, r]) => ({
+                    name,
+                    type: "semantic",
+                    severity: r.confidence > 0.8 ? "error" : "warning",
+                    message: r.justification,
+                })),
+                ...validationResults
+                    .filter((r) => r.status === "FAIL")
+                    .map((r) => ({
+                        name: r.name,
+                        type: "programmatic",
+                        severity: "error",
+                        message: r.message,
+                        snippet: r.snippet || r.location?.text,
+                    })),
+            ],
+        };
+
+        const jsonString = JSON.stringify(report, null, 2);
+        const blob = new Blob([jsonString], { type: "application/json" });
         const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `validation-${Date.now()}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
+
+        // Create download link with proper filename
+        const filename = `validation-report-${uploadedFileName.replace(/\.[^/.]+$/, "") || "document"}.json`;
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+
+        // Cleanup after a delay
+        setTimeout(() => {
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }, 200);
+
+        console.log("[Export] Downloaded:", filename);
     }
 </script>
 
@@ -166,7 +537,8 @@
                     <div class="header-actions">
                         <button
                             on:click={exportResults}
-                            class="btn btn-secondary">Export Report</button
+                            class="btn btn-secondary"
+                            >Export Analysis JSON</button
                         >
                         <button
                             on:click={() => (rulesAnalysisResults = {})}
@@ -224,114 +596,21 @@
                     </div>
                 </div>
 
-                <!-- Inspector Layout -->
-                <div class="inspector-grid">
-                    <!-- List -->
-                    <div class="issues-list card">
-                        <div class="tabs">
-                            <button
-                                class="tab {activeTab === 'all'
-                                    ? 'active'
-                                    : ''}"
-                                on:click={() => (activeTab = "all")}>All</button
-                            >
-                            <button
-                                class="tab {activeTab === 'errors'
-                                    ? 'active'
-                                    : ''}"
-                                on:click={() => (activeTab = "errors")}
-                            >
-                                Errors <span class="count-badge error"
-                                    >{failedRules.length}</span
-                                >
-                            </button>
-                            <button
-                                class="tab {activeTab === 'passed'
-                                    ? 'active'
-                                    : ''}"
-                                on:click={() => (activeTab = "passed")}
-                            >
-                                Passed <span class="count-badge success"
-                                    >{passedRules.length}</span
-                                >
-                            </button>
-                        </div>
-
-                        <div class="list-content">
-                            {#each filteredIssues as [ruleName, result]}
-                                <button
-                                    class="issue-item {selectedIssue ===
-                                    ruleName
-                                        ? 'selected'
-                                        : ''}"
-                                    on:click={() => (selectedIssue = ruleName)}
-                                >
-                                    <div
-                                        class="issue-status {result.decision
-                                            ? 'success'
-                                            : 'error'}"
-                                    ></div>
-                                    <div class="issue-info">
-                                        <h4>{ruleName}</h4>
-                                        <p>
-                                            {result.justification.slice(
-                                                0,
-                                                60,
-                                            )}...
-                                        </p>
-                                    </div>
-                                </button>
-                            {/each}
-                        </div>
-                    </div>
-
-                    <!-- Detail -->
-                    <div class="issue-detail card">
-                        {#if selectedIssue && rulesAnalysisResults[selectedIssue]}
-                            {@const rule = generalRules.find(
-                                (r) => r.name === selectedIssue,
-                            )}
-                            {@const result =
-                                rulesAnalysisResults[selectedIssue]}
-
-                            <div class="detail-header">
-                                <span
-                                    class="status-badge {result.decision
-                                        ? 'success'
-                                        : 'error'}"
-                                >
-                                    {result.decision ? "Passed" : "Failed"}
-                                </span>
-                                <h3>{selectedIssue}</h3>
-                            </div>
-
-                            <div class="detail-section">
-                                <label>Analysis</label>
-                                <div
-                                    class="analysis-box {result.decision
-                                        ? 'success'
-                                        : 'error'}"
-                                >
-                                    {result.justification}
-                                </div>
-                            </div>
-
-                            <div class="detail-section">
-                                <label>Rule Requirement</label>
-                                <p class="rule-text">
-                                    {rule?.instruction || "N/A"}
-                                </p>
-                            </div>
-                        {:else}
-                            <div class="empty-state">
-                                <div class="empty-icon">👈</div>
-                                <p>
-                                    Select an item from the list to view details
-                                </p>
-                            </div>
-                        {/if}
-                    </div>
-                </div>
+                <!-- Document Viewer with DOCX Preview -->
+                <DocumentViewer
+                    documentBuffer={uploadedBuffer}
+                    errors={validationResults}
+                    {selectedError}
+                    {currentFix}
+                    {isGeneratingFix}
+                    on:errorSelect={(e) => {
+                        selectedError = e.detail;
+                        selectedIssue = e.detail.name;
+                    }}
+                    on:generateFix={(e) => handleGenerateFix(e.detail)}
+                    on:acceptFix={(e) => handleAcceptFix(e.detail)}
+                    on:rejectFix={(e) => handleRejectFix(e.detail)}
+                />
             </div>
         {:else}
             <!-- Upload State -->
@@ -967,5 +1246,86 @@
         to {
             transform: rotate(360deg);
         }
+    }
+
+    /* =========================================================================
+       AUTOFIX STYLES
+       ========================================================================= */
+
+    .autofix-section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px dashed var(--border-light);
+    }
+
+    .autofix-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .autofix-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-main);
+    }
+
+    .btn-generate-fix {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, var(--fix-accept) 0%, #40916c 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .btn-generate-fix:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+    }
+
+    .btn-generate-fix:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .generating-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background: var(--fix-bg);
+        border-radius: 12px;
+        gap: 0.75rem;
+    }
+
+    .generating-placeholder .spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid rgba(45, 106, 79, 0.2);
+        border-top-color: var(--fix-accept);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .generating-placeholder p {
+        color: var(--text-muted);
+        font-style: italic;
+        font-size: 0.9rem;
+    }
+
+    .detail-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
     }
 </style>

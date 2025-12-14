@@ -26,7 +26,7 @@
         {
             icon: "🌍",
             title: "Global Support",
-            desc: "Works with 50+ major academic journals.",
+            desc: "Works with 10+ academic journals.",
         },
     ];
 
@@ -81,7 +81,7 @@
             <span>ApexScript</span>
         </a>
         <div class="nav-links">
-            <a href="/pricing">Pricing</a>
+            <a href="#pricing">Pricing</a>
             <a href="/docs">Documentation</a>
             <a href="#features">Features</a>
             {#if $user}
@@ -118,14 +118,19 @@
             <p>TRUSTED BY RESEARCHERS FROM</p>
             <div class="logos">
                 <img
-                    src="/logos/EPFL_Logo_Digital_RGB_PROD.png"
+                    src="/logos/epfl-logo.png"
                     alt="EPFL Logo"
                     class="logo-img epfl"
                 />
                 <img
-                    src="/logos/Brandpanel_UNIBAS_EN.jpg"
+                    src="/logos/unibas-logo.jpg"
                     alt="University of Basel Logo"
                     class="logo-img unibas"
+                />
+                <img
+                    src="/logos/unil-logo.png"
+                    alt="UNIL Logo"
+                    class="logo-img unil"
                 />
             </div>
         </div>
@@ -202,7 +207,7 @@
             <div class="footer-links">
                 <div>
                     <h4>Product</h4>
-                    <a href="/pricing">Pricing</a>
+                    <a href="#pricing">Pricing</a>
                     <a href="/docs">Docs</a>
                     <a href="/dashboard">Dashboard</a>
                 </div>
@@ -215,7 +220,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2024 ApexScript Inc. All rights reserved.
+            © 2025 ApexScript Inc. All rights reserved.
         </div>
     </div>
 </footer>
@@ -329,7 +334,8 @@
 
     .trusted-by {
         border-top: 1px solid var(--border-light);
-        padding-top: 3rem;
+        padding-top: 4rem;
+        margin-top: 2rem;
     }
 
     .trusted-by p {
@@ -337,7 +343,7 @@
         font-weight: 600;
         letter-spacing: 0.1em;
         color: var(--text-muted);
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .logos {
@@ -345,8 +351,7 @@
         justify-content: center;
         align-items: center;
         gap: 4rem;
-        color: var(--text-secondary);
-        opacity: 0.7;
+        padding-bottom: 2rem;
     }
 
     .logo-group {
@@ -356,20 +361,22 @@
     }
 
     .logo-img {
-        height: 40px;
+        height: 45px;
         width: auto;
-        opacity: 0.8;
-        transition: opacity 0.3s;
-        filter: grayscale(100%);
+        opacity: 1;
+        transition:
+            transform 0.3s,
+            opacity 0.3s;
+        /* No grayscale - show original colors */
     }
 
     .logo-img:hover {
-        filter: grayscale(0%);
-        opacity: 1;
+        transform: scale(1.05);
+        opacity: 0.9;
     }
 
     .logo-img.epfl {
-        height: 32px; /* EPFL logo is wider */
+        height: 38px; /* EPFL logo is wider */
     }
 
     .logo-text {
@@ -382,7 +389,6 @@
 
     .logos > *:hover {
         opacity: 1;
-        color: var(--text-main);
     }
 
     /* Features */
@@ -393,21 +399,77 @@
 
     .feature-card {
         padding: 2rem;
-        background: white;
-        border: 1px solid var(--border-light);
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        border: 1px solid rgba(38, 87, 193, 0.15);
         border-radius: var(--radius-xl);
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.05),
+            0 2px 4px -1px rgba(0, 0, 0, 0.03),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+
+    .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(
+            135deg,
+            rgba(38, 87, 193, 0.3),
+            rgba(59, 111, 217, 0.1),
+            rgba(38, 87, 193, 0.3)
+        );
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
     }
 
     .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--primary);
+        transform: translateY(-8px) rotateX(2deg);
+        box-shadow:
+            0 25px 50px -12px rgba(38, 87, 193, 0.25),
+            0 0 30px rgba(38, 87, 193, 0.15),
+            0 0 60px rgba(38, 87, 193, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+        border-color: rgba(38, 87, 193, 0.4);
+    }
+
+    .feature-card:hover::before {
+        opacity: 1;
+        animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+        0%,
+        100% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 1;
+        }
     }
 
     .feature-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
     /* Steps */
