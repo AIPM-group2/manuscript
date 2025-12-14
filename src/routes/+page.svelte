@@ -119,17 +119,17 @@
             <p>TRUSTED BY RESEARCHERS FROM</p>
             <div class="logos">
                 <img
-                    src="/logos/epfl-logo.png"
+                    src="{base}/logos/epfl-logo.png"
                     alt="EPFL Logo"
                     class="logo-img epfl"
                 />
                 <img
-                    src="/logos/unibas-logo.jpg"
+                    src="{base}/logos/unibas-logo.jpg"
                     alt="University of Basel Logo"
                     class="logo-img unibas"
                 />
                 <img
-                    src="/logos/unil-logo.png"
+                    src="{base}/logos/unil-logo.png"
                     alt="UNIL Logo"
                     class="logo-img unil"
                 />
