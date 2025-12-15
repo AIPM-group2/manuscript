@@ -148,6 +148,8 @@ const patternRules: ProgrammaticRule[] = [
                 status: isSequential ? "PASS" : "FAIL",
                 confidence: 1.0,
                 message: isSequential ? `${tableNums.length} tables numbered correctly.` : `Tables not numbered sequentially. Found: ${sorted.join(", ")}`,
+                suggestion: !isSequential ? `Renumber tables sequentially: Table 1, Table 2, Table 3, etc. Current numbering: ${sorted.join(", ")}` : undefined,
+                autoFixable: !isSequential,
                 details: { instruction: "Tables must be numbered sequentially: Table 1, Table 2, Table 3" },
                 snippet: isSequential ? undefined : snippetText,
                 location: isSequential ? undefined : {
@@ -178,7 +180,10 @@ const patternRules: ProgrammaticRule[] = [
                     confidence: 0.7,
                     message: citationCount > 0
                         ? `Found ${citationCount} citations in text (reference list parsing limited).`
-                        : "No numbered references found.",
+                        : "No numbered references found in the reference list.",
+                    suggestion: citationCount === 0
+                        ? "Add a numbered reference list (1. Author, Title..., 2. Author, Title..., etc.)"
+                        : "Ensure references are numbered sequentially in the reference list.",
                     details: { instruction: "References must be numbered sequentially: 1, 2, 3..." }
                 };
             }
@@ -192,6 +197,7 @@ const patternRules: ProgrammaticRule[] = [
                 status: isSequential ? "PASS" : "WARNING",  // Downgrade to WARNING as parsing can be imperfect
                 confidence: 0.85,
                 message: isSequential ? `${sorted.length} references numbered correctly.` : `References may not be sequential. Found: ${sorted.join(", ")}`,
+                suggestion: !isSequential ? `Renumber references sequentially starting from 1. Expected: 1, 2, 3... up to ${sorted.length}` : undefined,
                 details: { instruction: "References must be numbered sequentially: 1, 2, 3..." }
             };
         }
@@ -1146,7 +1152,10 @@ const structureRules: ProgrammaticRule[] = [
                 confidence: 0.8,
                 message: emptySections.length === 0
                     ? "All sections have content."
-                    : `Found ${emptySections.length} section(s) with little or no content.`,
+                    : `Found ${emptySections.length} section(s) with little or no content: ${emptySections.map(s => s.heading).join(", ")}`,
+                suggestion: emptySections.length > 0
+                    ? `Add substantive content to the following section(s): ${emptySections.map(s => s.heading).join(", ")}`
+                    : undefined,
                 details: { instruction: "Sections should not be empty" },
                 snippet: firstEmptyHeading,
                 location: emptySections.length > 0 ? {

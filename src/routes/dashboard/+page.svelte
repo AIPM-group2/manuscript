@@ -395,75 +395,64 @@
         }
     }
 
-    function exportResults() {
-        // Build comprehensive validation report
-        const report = {
-            meta: {
-                fileName: uploadedFileName,
-                exportedAt: new Date().toISOString(),
-                version: "1.0.0",
-            },
-            summary: {
-                passRate: passRate,
-                totalChecks:
-                    Object.keys(rulesAnalysisResults).length +
-                    validationResults.length,
-                passed:
-                    passedRules.length +
-                    validationResults.filter((r) => r.status === "PASS").length,
-                failed:
-                    failedRules.length +
-                    validationResults.filter((r) => r.status === "FAIL").length,
-                warnings: validationResults.filter(
-                    (r) => r.status === "WARNING",
-                ).length,
-            },
-            semanticResults: Object.entries(rulesAnalysisResults).map(
-                ([ruleName, result]) => ({
-                    ruleName,
-                    decision: result.decision,
-                    justification: result.justification,
-                    confidence: result.confidence || 0.8,
-                    type: "semantic",
-                }),
-            ),
-            programmaticResults: validationResults.map((result) => ({
-                ruleId: result.ruleId,
-                ruleName: result.name,
-                status: result.status,
-                message: result.message,
-                confidence: result.confidence || 1.0,
-                snippet: result.snippet || result.location?.text,
-                suggestion: result.suggestion,
-                autoFixable: result.autoFixable || false,
-                type: "programmatic",
-            })),
-            issues: [
-                ...failedRules.map(([name, r]) => ({
-                    name,
-                    type: "semantic",
-                    severity: r.confidence > 0.8 ? "error" : "warning",
-                    message: r.justification,
-                })),
-                ...validationResults
-                    .filter((r) => r.status === "FAIL")
-                    .map((r) => ({
-                        name: r.name,
-                        type: "programmatic",
-                        severity: "error",
-                        message: r.message,
-                        snippet: r.snippet || r.location?.text,
-                    })),
-            ],
-        };
+    /**
+     * Export the document with all accepted AI fixes applied.
+     * Preserves original document structure (images, tables, fonts, styles).
+     */
+    function exportFixedDocument() {
+        if (!uploadedBuffer) {
+            error = "No document to export. Please upload a document first.";
+            return;
+        }
 
-        const jsonString = JSON.stringify(report, null, 2);
-        const blob = new Blob([jsonString], { type: "application/json" });
+        try {
+            // Create editor from original buffer
+            const editor = new DocxSmartEditor(uploadedBuffer);
+
+            // Get all accepted fixes
+            const acceptedFixes = fixes.filter((f) => f.status === "accepted");
+
+            // Apply each accepted fix
+            let appliedCount = 0;
+            for (const fix of acceptedFixes) {
+                if (fix.original && fix.suggested) {
+                    const result = editor.replace(fix.original, fix.suggested);
+                    if (result.success) {
+                        appliedCount++;
+                        console.log(`[Export] Applied fix: ${fix.ruleName}`);
+                    } else {
+                        console.warn(
+                            `[Export] Could not apply fix for ${fix.ruleName}: ${result.message}`,
+                        );
+                    }
+                }
+            }
+
+            // Export as DOCX blob (preserves all structure)
+            const blob = editor.export();
+
+            // Generate filename
+            const baseName =
+                uploadedFileName.replace(/\.docx?$/i, "") || "document";
+            const filename = `${baseName}-fixed.docx`;
+
+            // Download the blob
+            downloadBlob(blob, filename);
+
+            console.log(
+                `[Export] Downloaded ${filename} with ${appliedCount} fixes applied`,
+            );
+        } catch (err: any) {
+            console.error("Export error:", err);
+            error = `Export failed: ${err.message}`;
+        }
+    }
+
+    /**
+     * Helper function to download a Blob as a file.
+     */
+    function downloadBlob(blob: Blob, filename: string) {
         const url = URL.createObjectURL(blob);
-
-        // Create download link with proper filename
-        const filename = `validation-report-${uploadedFileName.replace(/\.[^/.]+$/, "") || "document"}.json`;
-
         const link = document.createElement("a");
         link.href = url;
         link.download = filename;
@@ -475,8 +464,6 @@
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
         }, 200);
-
-        console.log("[Export] Downloaded:", filename);
     }
 </script>
 
@@ -537,9 +524,8 @@
                     </div>
                     <div class="header-actions">
                         <button
-                            on:click={exportResults}
-                            class="btn btn-secondary"
-                            >Export Analysis JSON</button
+                            on:click={exportFixedDocument}
+                            class="btn btn-secondary">📥 Download!</button
                         >
                         <button
                             on:click={() => (rulesAnalysisResults = {})}

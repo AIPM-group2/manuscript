@@ -132,11 +132,31 @@
             .replace(/\s+/g, " ")
             .substring(0, 100);
 
-        // Use TreeWalker to find text nodes
+        // Use TreeWalker to find text nodes, skipping TOC elements
         const walker = document.createTreeWalker(
             docxContainer,
             NodeFilter.SHOW_TEXT,
-            null,
+            {
+                acceptNode: (node: Node) => {
+                    // Skip nodes inside Table of Contents
+                    const parent = node.parentElement;
+                    if (parent) {
+                        // Check for various TOC indicators
+                        const isTOC =
+                            parent.closest(
+                                '.toc, [class*="toc"], [class*="TableOfContents"], nav',
+                            ) ||
+                            parent.style
+                                ?.getPropertyValue("mso-field-code")
+                                ?.includes("TOC") ||
+                            parent.closest("[data-toc]");
+                        if (isTOC) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                },
+            },
         );
 
         let node: Text | null;
