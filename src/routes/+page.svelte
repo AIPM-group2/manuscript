@@ -71,26 +71,54 @@
 </script>
 
 <svelte:head>
-    <title>ApexScript - Modern Manuscript Validation</title>
+    <title>Manuscript — AI-Powered Academic Validation</title>
 </svelte:head>
 
 <!-- Navigation -->
 <nav class="nav">
     <div class="container nav-content">
         <a href="{base}/" class="brand">
-            <div class="logo-icon">A</div>
-            <span>ApexScript</span>
+            <div class="logo-icon">
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M4 4h2l6 14 6-14h2"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M20 20H4"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        opacity="0.6"
+                    />
+                </svg>
+            </div>
+            <span class="brand-text"
+                >Manu<span class="brand-accent">script</span></span
+            >
         </a>
         <div class="nav-links">
             <a href="{base}/pricing">Pricing</a>
             <a href="{base}/docs">Documentation</a>
             <a href="#features">Features</a>
             {#if $user}
-                <a href="{base}/dashboard" class="btn btn-primary btn-sm">Dashboard</a
+                <a href="{base}/dashboard" class="btn btn-primary btn-sm"
+                    >Dashboard</a
                 >
             {:else}
                 <a href="{base}/login" class="btn btn-ghost btn-sm">Log in</a>
-                <a href="{base}/signup" class="btn btn-primary btn-sm">Sign up</a>
+                <a href="{base}/signup" class="btn btn-primary btn-sm"
+                    >Sign up</a
+                >
             {/if}
         </div>
     </div>
@@ -106,13 +134,17 @@
             <span class="text-gradient">for researchers</span>
         </h1>
         <p class="hero-subtitle">
-            ApexScript provides all the infrastructure needed for modern
-            manuscript validation. Automated formatting checks, citation
-            analysis, and more.
+            Manuscript provides all the infrastructure needed for modern
+            academic validation. Automated formatting checks, citation analysis,
+            and AI-powered suggestions.
         </p>
         <div class="hero-actions">
-            <a href="{base}/signup" class="btn btn-primary btn-lg">Try for free</a>
-            <a href="{base}/docs" class="btn btn-secondary btn-lg">Documentation</a>
+            <a href="{base}/signup" class="btn btn-primary btn-lg"
+                >Try for free</a
+            >
+            <a href="{base}/docs" class="btn btn-secondary btn-lg"
+                >Documentation</a
+            >
         </div>
 
         <div class="trusted-by">
@@ -202,8 +234,8 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>ApexScript</h3>
-                <p>Automating academic compliance.</p>
+                <h3>Manuscript</h3>
+                <p>AI-powered academic validation.</p>
             </div>
             <div class="footer-links">
                 <div>
@@ -221,7 +253,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2025 ApexScript Inc. All rights reserved.
+            © 2025 Manuscript. Built with ❤️ at EPFL.
         </div>
     </div>
 </footer>
@@ -257,14 +289,28 @@
     }
 
     .logo-icon {
-        width: 32px;
-        height: 32px;
-        background: var(--primary);
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
         color: white;
-        border-radius: 8px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 2px 8px rgba(38, 87, 193, 0.3);
+    }
+
+    .brand-text {
+        font-weight: 700;
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+    }
+
+    .brand-accent {
+        background: linear-gradient(135deg, var(--primary), #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .nav-links {

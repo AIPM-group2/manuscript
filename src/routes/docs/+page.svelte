@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-    <title>Documentation - ApexScript</title>
+    <title>Documentation — Manuscript</title>
 </svelte:head>
 
 <div class="docs-layout">
@@ -22,8 +22,27 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <a href="{base}/" class="brand">
-                <div class="logo-icon">A</div>
-                <span>ApexScript</span>
+                <div class="logo-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M4 4h2l6 14 6-14h2"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M20 20H4"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            opacity="0.6"
+                        />
+                    </svg>
+                </div>
+                <span class="brand-text"
+                    >Manu<span class="brand-accent">script</span></span
+                >
             </a>
         </div>
 
@@ -51,15 +70,15 @@
             {#if activeSection === "introduction"}
                 <h1>Introduction</h1>
                 <p class="lead">
-                    ApexScript is an AI-powered manuscript validation engine
+                    Manuscript is an AI-powered academic validation engine
                     designed for modern research workflows.
                 </p>
 
                 <div class="card info-box">
-                    <h3>Why ApexScript?</h3>
+                    <h3>Why Manuscript?</h3>
                     <p>
-                        Traditional manual checking takes hours. ApexScript
-                        validates your manuscript against 50+ journal guidelines
+                        Traditional manual checking takes hours. Manuscript
+                        validates your document against 50+ journal guidelines
                         in seconds.
                     </p>
                 </div>
@@ -117,12 +136,12 @@
                 </div>
             {:else if activeSection === "api-reference"}
                 <h1>API Reference</h1>
-                <p>Integrate ApexScript into your own tools.</p>
+                <p>Integrate Manuscript into your own tools.</p>
 
                 <div class="code-block">
                     <div class="code-header">POST /v1/validate</div>
                     <pre><code
-                            >curl -X POST https://api.apexscript.com/v1/validate \
+                            >curl -X POST https://api.manuscript.tools/v1/validate \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -F "file=@manuscript.docx"</code
                         ></pre>
@@ -173,12 +192,23 @@
     .logo-icon {
         width: 32px;
         height: 32px;
-        background: var(--primary);
+        background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
         color: white;
         border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .brand-text {
+        font-weight: 700;
+    }
+
+    .brand-accent {
+        background: linear-gradient(135deg, var(--primary), #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .sidebar-nav {

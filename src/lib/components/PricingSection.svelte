@@ -8,6 +8,22 @@
     let cardsVisible = false;
     let hoveredCard: number | null = null;
 
+    // Contact Sales Modal
+    let showContactModal = false;
+    let contactForm = { name: "", email: "", message: "" };
+    let contactSubmitted = false;
+
+    function handleContactSubmit() {
+        // In production, this would send to your backend
+        console.log("Contact form submitted:", contactForm);
+        contactSubmitted = true;
+        setTimeout(() => {
+            showContactModal = false;
+            contactSubmitted = false;
+            contactForm = { name: "", email: "", message: "" };
+        }, 2000);
+    }
+
     // Pricing configuration
     const plans = [
         {
@@ -281,6 +297,11 @@
                                     class="cta-btn"
                                     class:primary={plan.popular}
                                     class:free={plan.isFree}
+                                    on:click={() => {
+                                        if (plan.cta === "Contact Sales") {
+                                            showContactModal = true;
+                                        }
+                                    }}
                                 >
                                     <span class="btn-text">{plan.cta}</span>
                                     <span class="btn-arrow">→</span>
@@ -341,6 +362,82 @@
         {/if}
     </div>
 </section>
+
+<!-- Contact Sales Modal -->
+{#if showContactModal}
+    <div
+        class="modal-backdrop"
+        on:click={() => (showContactModal = false)}
+        on:keydown={(e) => e.key === "Escape" && (showContactModal = false)}
+        role="button"
+        tabindex="0"
+    >
+        <div
+            class="contact-modal"
+            on:click|stopPropagation
+            on:keydown|stopPropagation
+            role="dialog"
+            aria-modal="true"
+        >
+            {#if contactSubmitted}
+                <div class="success-message">
+                    <span class="success-icon">✅</span>
+                    <h3>Message Sent!</h3>
+                    <p>Our sales team will contact you shortly.</p>
+                </div>
+            {:else}
+                <button
+                    class="modal-close"
+                    on:click={() => (showContactModal = false)}>×</button
+                >
+                <h3 class="modal-title">Contact Sales</h3>
+                <p class="modal-subtitle">
+                    Get in touch with our team for enterprise solutions
+                </p>
+
+                <form
+                    on:submit|preventDefault={handleContactSubmit}
+                    class="contact-form"
+                >
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input
+                            id="contact-name"
+                            type="text"
+                            bind:value={contactForm.name}
+                            placeholder="John Doe"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input
+                            id="contact-email"
+                            type="email"
+                            bind:value={contactForm.email}
+                            placeholder="you@institution.edu"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea
+                            id="contact-message"
+                            bind:value={contactForm.message}
+                            placeholder="Tell us about your research institution and needs..."
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send Message
+                        <span>→</span>
+                    </button>
+                </form>
+            {/if}
+        </div>
+    </div>
+{/if}
 
 <style>
     /* ========== Base Styles ========== */
@@ -640,20 +737,21 @@
         position: absolute;
         top: 6px;
         left: 6px;
-        width: calc(50% - 8px);
+        width: 100px; /* Width for Monthly */
         height: calc(100% - 12px);
         background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         border-radius: 10px;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
 
     .toggle-slider.yearly {
-        transform: translateX(calc(100% + 4px));
+        width: 155px; /* Width for Yearly + badge */
+        transform: translateX(104px);
     }
 
     .save-badge {
-        padding: 4px 8px;
+        padding: 4px 10px;
         background: linear-gradient(135deg, #fbbf24, #f59e0b);
         color: #0f172a;
         font-size: 0.7rem;
@@ -661,6 +759,7 @@
         border-radius: 6px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        white-space: nowrap;
     }
 
     /* ========== Pricing Grid ========== */
@@ -1085,5 +1184,155 @@
         .cta-btn {
             transition: none;
         }
+    }
+
+    /* ========== Contact Modal ========== */
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 24px;
+    }
+
+    .contact-modal {
+        position: relative;
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 40px;
+        max-width: 480px;
+        width: 100%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 50%;
+        color: #94a3b8;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .modal-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 8px;
+    }
+
+    .modal-subtitle {
+        color: #94a3b8;
+        margin: 0 0 32px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-group label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #cbd5e1;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: white;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: all 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #64748b;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .submit-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 16px 32px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    }
+
+    .success-message {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .success-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .success-message h3 {
+        font-size: 1.5rem;
+        color: white;
+        margin: 0 0 8px;
+    }
+
+    .success-message p {
+        color: #94a3b8;
+        margin: 0;
     }
 </style>

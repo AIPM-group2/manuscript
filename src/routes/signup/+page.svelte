@@ -1,6 +1,12 @@
 <script lang="ts">
     import "../../styles/design-system.css";
-    import { signup } from "$lib/stores/auth";
+    import { onMount } from "svelte";
+    import {
+        signup,
+        signInWithGoogle,
+        authError,
+        authLoading,
+    } from "$lib/stores/auth";
     import { goto } from "$app/navigation";
     import { base } from "$app/paths";
 
@@ -11,40 +17,55 @@
         confirmPassword: "",
     };
 
-    let error = "";
+    let localError = "";
+    let isSubmitting = false;
 
-    function handleSignup() {
-        error = "";
+    // Clear auth errors on page load
+    onMount(() => {
+        authError.set(null);
+    });
+
+    // Clear errors when user starts typing
+    function clearErrors() {
+        localError = "";
+        authError.set(null);
+    }
+
+    async function handleSignup() {
+        localError = "";
 
         if (form.password !== form.confirmPassword) {
-            error = "Passwords do not match";
+            localError = "Passwords do not match";
             return;
         }
 
         if (form.password.length < 6) {
-            error = "Password must be at least 6 characters";
+            localError = "Password must be at least 6 characters";
             return;
         }
 
-        signup(form.email, form.password, form.name);
-        goto(`${base}/dashboard`);
+        isSubmitting = true;
+        const success = await signup(form.email, form.password, form.name);
+        isSubmitting = false;
+
+        if (success) {
+            goto(`${base}/dashboard`);
+        }
     }
 
-    function signupWithGoogle() {
-        // Demo: simulate Google OAuth
-        signup("google@example.com", "google-auth", "Google User");
-        goto(`${base}/dashboard`);
-    }
+    async function signupWithGoogle() {
+        isSubmitting = true;
+        const success = await signInWithGoogle();
+        isSubmitting = false;
 
-    function signupWithGitHub() {
-        // Demo: simulate GitHub OAuth
-        signup("github@example.com", "github-auth", "GitHub User");
-        goto(`${base}/dashboard`);
+        if (success) {
+            goto(`${base}/dashboard`);
+        }
     }
 </script>
 
 <svelte:head>
-    <title>Sign Up - ApexScript</title>
+    <title>Sign Up — Manuscript</title>
 </svelte:head>
 
 <div
@@ -55,13 +76,34 @@
         <div style="text-align: center; margin-bottom: var(--spacing-8);">
             <a
                 href="{base}/"
-                style="font-size: 2rem; font-weight: 800; color: var(--primary); text-decoration: none;"
+                style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.75rem; font-weight: 800; color: var(--text-main); text-decoration: none;"
             >
                 <span
-                    style="background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 0.75rem; margin-right: 0.5rem;"
-                    >A</span
+                    style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%); color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(38, 87, 193, 0.3);"
                 >
-                ApexScript
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M4 4h2l6 14 6-14h2"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M20 20H4"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            opacity="0.6"
+                        />
+                    </svg>
+                </span>
+                <span
+                    >Manu<span
+                        style="background: linear-gradient(135deg, var(--primary), #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"
+                        >script</span
+                    ></span
+                >
             </a>
         </div>
 
@@ -76,52 +118,41 @@
                 Start validating manuscripts for free
             </p>
 
-            {#if error}
+            {#if localError || $authError}
                 <div
                     style="background: #fee2e2; border: 2px solid #ef4444; border-radius: var(--radius-md); padding: var(--spacing-3); margin-bottom: var(--spacing-4); color: #991b1b;"
                 >
-                    {error}
+                    {localError || $authError}
                 </div>
             {/if}
 
             <!-- Social Login -->
-            <div
-                style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3); margin-bottom: var(--spacing-6);"
-            >
+            <div style="margin-bottom: var(--spacing-6);">
                 <button
                     on:click={signupWithGoogle}
+                    disabled={isSubmitting}
                     class="btn btn-secondary"
-                    style="width: 100%;"
+                    style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"
                 >
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                        ><path
-                            fill="currentColor"
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path
+                            fill="#4285F4"
                             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                        /><path
-                            fill="currentColor"
+                        />
+                        <path
+                            fill="#34A853"
                             d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                        /><path
-                            fill="currentColor"
+                        />
+                        <path
+                            fill="#FBBC05"
                             d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                        /><path
-                            fill="currentColor"
+                        />
+                        <path
+                            fill="#EA4335"
                             d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                        /></svg
-                    >
-                    Google
-                </button>
-                <button
-                    on:click={signupWithGitHub}
-                    class="btn btn-secondary"
-                    style="width: 100%;"
-                >
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                        ><path
-                            fill="currentColor"
-                            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                        /></svg
-                    >
-                    GitHub
+                        />
+                    </svg>
+                    {isSubmitting ? "Signing up..." : "Continue with Google"}
                 </button>
             </div>
 
@@ -147,6 +178,7 @@
                     <input
                         type="text"
                         bind:value={form.name}
+                        on:input={clearErrors}
                         required
                         placeholder="John Doe"
                     />
@@ -160,6 +192,7 @@
                     <input
                         type="email"
                         bind:value={form.email}
+                        on:input={clearErrors}
                         required
                         placeholder="you@example.com"
                     />

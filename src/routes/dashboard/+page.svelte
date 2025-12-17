@@ -2,6 +2,10 @@
     import { onMount } from "svelte";
     import "../../styles/design-system.css";
     import { user, apiKey, logout, saveApiKey } from "$lib/stores/auth";
+    import {
+        documentHistory,
+        type DocumentHistoryItem,
+    } from "$lib/stores/documentHistory";
     import { goto } from "$app/navigation";
     import { base } from "$app/paths";
     import * as smarts from "../../smarts.js";
@@ -23,11 +27,13 @@
     // Confidence threshold: hide results below this to reduce false positives
     const CONFIDENCE_THRESHOLD = 0.5; // Only show results with >=50% confidence
 
-    // Redirect if not logged in
+    // Redirect if not logged in and init history
     onMount(() => {
         if (!$user) {
             goto(`${base}/login`);
         }
+        // Initialize document history
+        documentHistory.init();
     });
 
     let analyser: Analyzer | null = null;
@@ -163,6 +169,22 @@
                 selectedIssue = validationResults[0].name;
                 activeTab = "errors";
             }
+
+            // Save to document history
+            const totalRules = Object.keys(rulesAnalysisResults).length;
+            const passed = Object.entries(rulesAnalysisResults).filter(
+                ([_, r]) => r.decision,
+            ).length;
+            const failed = totalRules - passed;
+            const rate =
+                totalRules > 0 ? Math.round((passed / totalRules) * 100) : 0;
+            documentHistory.addDocument(
+                file.name,
+                rate,
+                totalRules,
+                passed,
+                failed,
+            );
         } catch (err: any) {
             console.error("Analysis Error:", err);
             error = err.message || "Analysis failed";
@@ -468,7 +490,7 @@
 </script>
 
 <svelte:head>
-    <title>Dashboard - ApexScript</title>
+    <title>Dashboard — Manuscript</title>
 </svelte:head>
 
 <div class="dashboard-layout">
@@ -478,14 +500,47 @@
     <nav class="nav">
         <div class="container nav-content">
             <a href="{base}/" class="brand">
-                <div class="logo-icon">A</div>
-                <span>ApexScript</span>
+                <div class="logo-icon">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M4 4h2l6 14 6-14h2"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M20 20H4"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            opacity="0.6"
+                        />
+                    </svg>
+                </div>
+                <span class="brand-text"
+                    >Manu<span class="brand-accent">script</span></span
+                >
             </a>
 
             <div class="nav-actions">
                 <div class="user-badge">
-                    <span class="avatar">{$user?.name?.[0] || "U"}</span>
-                    <span class="name">{$user?.name || "User"}</span>
+                    <span class="avatar"
+                        >{$user?.displayName?.[0] ||
+                            $user?.email?.[0] ||
+                            "U"}</span
+                    >
+                    <span class="name"
+                        >{$user?.displayName ||
+                            $user?.email?.split("@")[0] ||
+                            "User"}</span
+                    >
                 </div>
                 {#if !$apiKey}
                     <button
@@ -507,7 +562,21 @@
             <div class="loading-state">
                 <div class="spinner-container">
                     <div class="spinner"></div>
-                    <div class="logo-icon spinner-icon">A</div>
+                    <div class="logo-icon spinner-icon">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M4 4h2l6 14 6-14h2"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
                 </div>
                 <h3>{analysisProgress}</h3>
                 <p>
@@ -658,6 +727,52 @@
                     <div class="feature-pill">🔒 Secure & Private</div>
                     <div class="feature-pill">📚 50+ Journals</div>
                 </div>
+
+                <!-- Document History -->
+                {#if $documentHistory.length > 0}
+                    <div class="history-section">
+                        <div class="history-header">
+                            <h3>📋 Recent Documents</h3>
+                            <button
+                                class="btn-clear"
+                                on:click={() => documentHistory.clear()}
+                            >
+                                Clear All
+                            </button>
+                        </div>
+                        <div class="history-list">
+                            {#each $documentHistory as doc}
+                                <div class="history-item">
+                                    <div class="history-icon">📄</div>
+                                    <div class="history-info">
+                                        <span class="history-name"
+                                            >{doc.fileName}</span
+                                        >
+                                        <span class="history-date">
+                                            {new Date(
+                                                doc.analyzedAt,
+                                            ).toLocaleDateString()}
+                                        </span>
+                                    </div>
+                                    <div class="history-stats">
+                                        <span
+                                            class="history-rate"
+                                            class:good={doc.passRate >= 70}
+                                            class:warning={doc.passRate >= 50 &&
+                                                doc.passRate < 70}
+                                            class:bad={doc.passRate < 50}
+                                        >
+                                            {doc.passRate}%
+                                        </span>
+                                        <span class="history-rules">
+                                            {doc.passedRules}/{doc.totalRules} passed
+                                        </span>
+                                    </div>
+                                </div>
+                            {/each}
+                        </div>
+                    </div>
+                {/if}
             </div>
         {/if}
     </main>
@@ -1314,5 +1429,120 @@
         letter-spacing: 0.05em;
         color: var(--text-muted);
         margin-bottom: 0.5rem;
+    }
+
+    /* Document History Styles */
+    .history-section {
+        margin-top: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .history-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .history-header h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-main);
+        margin: 0;
+    }
+
+    .btn-clear {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-clear:hover {
+        background: var(--gray-100);
+        color: var(--error);
+    }
+
+    .history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .history-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: white;
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        transition: all 0.2s ease;
+    }
+
+    .history-item:hover {
+        border-color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .history-icon {
+        font-size: 1.5rem;
+    }
+
+    .history-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .history-name {
+        font-weight: 600;
+        color: var(--text-main);
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+
+    .history-date {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .history-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.25rem;
+    }
+
+    .history-rate {
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .history-rate.good {
+        color: var(--success);
+    }
+
+    .history-rate.warning {
+        color: var(--warning, #f59e0b);
+    }
+
+    .history-rate.bad {
+        color: var(--error);
+    }
+
+    .history-rules {
+        font-size: 0.75rem;
+        color: var(--text-muted);
     }
 </style>
