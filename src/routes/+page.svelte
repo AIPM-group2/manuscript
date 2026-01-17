@@ -8,6 +8,14 @@
     let activeFaq = -1;
     let contactForm = { name: "", email: "", message: "" };
 
+    // Smooth scroll to section
+    function scrollToSection(sectionId: string) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
     const features = [
         {
             icon: "⚡",
@@ -107,7 +115,11 @@
             >
         </a>
         <div class="nav-links">
-            <a href="#pricing">Pricing</a>
+            <a
+                href="#pricing"
+                on:click|preventDefault={() => scrollToSection("pricing")}
+                >Pricing</a
+            >
             <a href="{base}/docs">Documentation</a>
             <a href="#features">Features</a>
             {#if $user}
@@ -240,7 +252,11 @@
             <div class="footer-links">
                 <div>
                     <h4>Product</h4>
-                    <a href="#pricing">Pricing</a>
+                    <a
+                        href="#pricing"
+                        on:click|preventDefault={() =>
+                            scrollToSection("pricing")}>Pricing</a
+                    >
                     <a href="{base}/docs">Docs</a>
                     <a href="{base}/dashboard">Dashboard</a>
                 </div>
