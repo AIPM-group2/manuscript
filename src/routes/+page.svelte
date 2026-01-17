@@ -107,7 +107,7 @@
             >
         </a>
         <div class="nav-links">
-            <a href="{base}/pricing">Pricing</a>
+            <a href="#pricing">Pricing</a>
             <a href="{base}/docs">Documentation</a>
             <a href="#features">Features</a>
             {#if $user}
@@ -240,7 +240,7 @@
             <div class="footer-links">
                 <div>
                     <h4>Product</h4>
-                    <a href="{base}/pricing">Pricing</a>
+                    <a href="#pricing">Pricing</a>
                     <a href="{base}/docs">Docs</a>
                     <a href="{base}/dashboard">Dashboard</a>
                 </div>
